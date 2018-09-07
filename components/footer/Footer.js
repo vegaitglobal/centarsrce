@@ -1,35 +1,29 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Alert, Platform, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, ScrollView, Image } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import {
+  View,
+  Image,
+  TouchableOpacity,
+  Text
+} from 'react-native';
 import styles from './styles';
 
 export default class Footer extends React.Component {
-    btnClicked() {
-        Alert.alert("Clicked");
-    }
-
-    render() {
-        return (
-            <View style={styles.footerCon}>
-                <View style={styles.btnContainer}>
-                    <Button style={styles.btn}
-                        title = "Pozovi"
-                        onPress = {this.btnClicked}
-                    />
-                </View>
-                <View style={styles.btnContainer}>
-                    <Button style={styles.btn}
-                        title = "Email"
-                        onPress = {this.btnClicked}
-                    />
-                </View>
-                <View style={styles.btnContainer}>
-                    <Button style={styles.btn}
-                        title = "Chat"
-                        onPress = {this.btnClicked}
-                    />
-                </View>
-            </View>
-        );
-    }
+  render() {
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity>
+            <Image source={require('../../images/call.png')} style={styles.navIcon}/>
+            <Text> Call </Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+            <Image source={require('../../images/mail.png')} style={styles.navIcon}/>
+            <Text> Email </Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+            <Image source={require('../../images/chat.png')} style={styles.navIcon}/>
+            <Text> Chat </Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
 }

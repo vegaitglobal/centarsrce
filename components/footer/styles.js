@@ -1,45 +1,17 @@
-const styles = StyleSheet.create({
+export default {
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'stretch',
-    justifyContent: 'space-between',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    width: '100%',
+    height: 50,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    zIndex: 600
   },
-  headerCon: {
-      height: 70,
-      backgroundColor: '#123456',
-      flexDirection: 'row',
-      padding: 10,
-      alignItems: 'stretch'
-  },
-  footerCon: {
-      height: 70,
-      flexDirection: 'row',
-      backgroundColor: 'powderblue',
-      padding: 5,
-      alignItems: 'stretch',
-      justifyContent: 'center'
-  },
-  mainCon: {
-      backgroundColor: '#f1f1f1'
-  },
-  btnContainer: {
-      flex: 1,
-      margin: 5,
-      backgroundColor: '#111',
-
-  },
-  btn: {
-      flex: 1
-  },
-  headerText: {
-      color: '#fff',
-      fontSize: 20,
-      marginLeft: 5
-  },
-  hTextCon: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center'
+  navIcon: {
+    width: 30,
+    height: 30
   }
-});
+}
