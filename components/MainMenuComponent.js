@@ -9,8 +9,8 @@ export default class MainMenu extends React.Component {
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>Home Page with buttons</Text>
             <Button
-              title="Go to Details"
-              onPress={() => this.props.navigation.navigate('Details')}
+              title="Razmišljaš o samoubistvu?"
+              onPress={() => this.props.navigation.navigate('ThinkingAbout')}
             />
             <Footer />
           </View>

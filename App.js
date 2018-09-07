@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, Alert, Platform, TouchableHighlight, To
 import { createStackNavigator } from 'react-navigation';
 import SplashScreen from './components/SplashScreenComponent';
 import MainMenu from './components/MainMenuComponent';
+import ThinkingAbout from "./components/ThinkingAbout";
 
 export default class App extends React.Component {
     render() {
@@ -14,7 +15,7 @@ const RootStack = createStackNavigator(
   {
     Home: SplashScreen,
     MainMenu: MainMenu,
-
+    ThinkingAbout: ThinkingAbout
   },
   {
     initialRouteName: 'Home',
