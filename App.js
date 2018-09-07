@@ -1,17 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button, Alert, Platform, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, ScrollView, Image } from 'react-native';
+import { createStackNavigator } from 'react-navigation';
+import SplashScreen from './components/SplashScreenComponent';
+import MainMenu from './components/MainMenuComponent';
 
 export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
+    render() {
+        return <RootStack/>;
+    }
 }
+
+const RootStack = createStackNavigator(
+  {
+    Home: SplashScreen,
+    MainMenu: MainMenu,
+
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
 
 const styles = StyleSheet.create({
   container: {
