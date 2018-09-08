@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, ScrollView, View } from "react-native";
-import Footer from "./footer/Footer";
-import NavigationButtonList from "./NavigationButtonList";
+import Footer from "../footer/Footer";
+import NavigationButtonList from "../NavigationButtonList";
 
 export default class MainMenu extends React.Component {
   static navigationOptions = {
@@ -15,7 +15,7 @@ export default class MainMenu extends React.Component {
       <ScrollView>
         <Image
           style={{ width: "100%" }}
-          source={require("../images/homePage.png")}
+          source={require("../../images/homePage.png")}
         />
         <View>
           <NavigationButtonList

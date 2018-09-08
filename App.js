@@ -1,9 +1,9 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation";
-import MainMenu from "./components/MainMenuComponent";
+import MainMenu from "./components/main_menu/MainMenuComponent";
 import Placeholder from "./components/Placeholder";
-import SplashScreen from "./components/SplashScreenComponent";
-import ThinkingAbout from "./components/ThinkingAbout";
+import SplashScreen from "./components/splash_screen/SplashScreenComponent";
+import ThinkingAbout from "./components/thinking_about/ThinkingAbout";
 
 const RootStack = createStackNavigator(
   {

@@ -13,7 +13,7 @@ export default class SplashScreen extends React.Component {
         <TouchableHighlight
           onPress={() => this.props.navigation.navigate("MainMenu")}
         >
-          <Image source={require("../images/splash.png")} />
+          <Image source={require("../../images/splash.png")} />
         </TouchableHighlight>
       </View>
     );

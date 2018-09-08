@@ -7,33 +7,10 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import colors from "../helpers/colors";
-import { normalize } from "../helpers/sizes";
-import NavigationButtonList from "./NavigationButtonList";
-
-const styles = StyleSheet.create({
-  clickableTextContainer: {
-    borderColor: colors.darkPurple,
-    borderTopWidth: normalize(2),
-    paddingTop: normalize(10),
-    marginBottom: normalize(30)
-  },
-  clickableTextText: {
-    color: colors.darkPurple
-  },
-  title: {
-    color: colors.darkPurple,
-    fontSize: normalize(22),
-    textAlign: "center",
-    paddingHorizontal: normalize(24),
-    paddingTop: normalize(30)
-  },
-  body: {
-    fontSize: normalize(14),
-    paddingHorizontal: normalize(24),
-    paddingVertical: normalize(12)
-  }
-});
+import colors from "../../helpers/colors";
+import { normalize } from "../../helpers/sizes";
+import NavigationButtonList from "../NavigationButtonList";
+import styles from './styles';
 
 const ClickableText = ({ text, onPress }) => (
   <TouchableOpacity style={styles.clickableTextContainer} onPress={onPress}>
@@ -65,7 +42,7 @@ export default class ThinkingAbout extends React.Component {
       <ScrollView>
         <Image
           style={{ width: "100%" }}
-          source={require("../images/thinkingAbout.png")}
+          source={require("../../images/thinkingAbout.png")}
         />
         <View style={{ backgroundColor: colors.white }}>
           <Text style={styles.title}>Molim te da prvo pročitaš sledeće</Text>
