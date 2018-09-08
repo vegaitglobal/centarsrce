@@ -27,7 +27,7 @@ export default class MainMenu extends React.Component {
                 },
                 {
                   label: "Kako pomoći?",
-                  onPress: () => navigation.navigate("Placeholder")
+                  onPress: () => navigation.navigate("HowToHelp")
                 },
                 {
                   label: "Značajne informacije",
@@ -35,7 +35,7 @@ export default class MainMenu extends React.Component {
                 },
                 {
                   label: "O udruženju i o aplikaciji",
-                  onPress: () => navigation.navigate("Placeholder")
+                  onPress: () => navigation.navigate("About")
                 }
               ]}
             />
