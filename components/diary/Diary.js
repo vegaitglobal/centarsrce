@@ -10,6 +10,7 @@ import colors from '../../helpers/colors';
 import styles from './styles';
 import reusableStyles from '../reusableStyles';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
+import moment from 'moment';
 // import {LocaleConfig} from 'react-native-calendars';
 
 LocaleConfig.locales['rs'] = {
@@ -26,6 +27,7 @@ export default class Diary extends React.Component {
   static navigationOptions = {
     title: "Moj dnevnik"
   };
+
   render() {
     return (
       <View style={reusableStyles.mainContainer}>
@@ -52,6 +54,8 @@ export default class Diary extends React.Component {
               '2018-09-06': { customStyles: styles.markedDate },
               '2018-09-08': { customStyles: styles.markedToday },
             }}
+            maxDate={moment().format('YYYY-MM-DD') }
+
             firstDay={1}
             theme={{
               backgroundColor: '#ffffff',

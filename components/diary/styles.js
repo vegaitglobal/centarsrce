@@ -28,7 +28,8 @@ export default {
   },
   markedToday: {
     container: {
-      backgroundColor: colors.darkPurple
+      backgroundColor: colors.darkPurple,
+      elevation: 2
     },
     text: {
       color: colors.white,
