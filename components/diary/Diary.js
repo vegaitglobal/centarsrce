@@ -28,6 +28,47 @@ export default class Diary extends React.Component {
     title: "Moj dnevnik"
   };
 
+  constructor(props) {
+    super(props);
+
+    let data = {
+      '2018-08-03': 'Neki tekst. Danas sam radio ... Tekst br adsmk',
+      '2018-08-05': 'Neki tekst. Danas sam radio ...a a',
+      '2018-08-06': 'Neki drugi Tekst',
+      '2018-08-15': 'Neki drugi Tekst',
+      '2018-08-16': 'Neki drugi Tekst',
+      '2018-08-17': 'Neki drugi Tekst',
+      '2018-08-18': 'Neki drugi Tekst',
+      '2018-08-23': 'Neki tekst. Danas sam radio ... Tekst br adsmk',
+      '2018-08-25': 'Neki tekst. Danas sam radio ...a a',
+      '2018-08-26': 'Neki drugi Tekst',
+      '2018-09-03': 'Lep dan na plazi',
+      '2018-09-05': 'Danas sam radio ...',
+      '2018-09-06': ' ...'
+    }
+    let keys = [];
+    for(let k in data) keys.push(k);
+    let markedDates = {}
+    for(let k in keys) markedDates[keys[k]] = { "customStyles": styles.markedDate };
+    markedDates[moment().format('YYYY-MM-DD')] = { "customStyles": styles.markedToday };
+
+    this.state = {
+      markedDates: markedDates
+      // markedDates: {
+      //   '2018-08-03': { customStyles: styles.markedDate },
+      //   '2018-08-05': { customStyles: styles.markedDate },
+      //   '2018-08-06': { customStyles: styles.markedDate },
+      //   '2018-08-23': { customStyles: styles.markedDate },
+      //   '2018-08-25': { customStyles: styles.markedDate },
+      //   '2018-08-26': { customStyles: styles.markedDate },
+      //   '2018-09-03': { customStyles: styles.markedDate },
+      //   '2018-09-05': { customStyles: styles.markedDate },
+      //   '2018-09-06': { customStyles: styles.markedDate },
+      //   '2018-09-08': { customStyles: styles.markedToday },
+      // }
+    }
+  }
+
   render() {
     return (
       <View style={reusableStyles.mainContainer}>
@@ -48,12 +89,7 @@ export default class Diary extends React.Component {
 
           <Calendar
             markingType={'custom'}
-            markedDates={{
-              '2018-09-03': { customStyles: styles.markedDate },
-              '2018-09-05': { customStyles: styles.markedDate },
-              '2018-09-06': { customStyles: styles.markedDate },
-              '2018-09-08': { customStyles: styles.markedToday },
-            }}
+            markedDates={this.state.markedDates}
             maxDate={moment().format('YYYY-MM-DD') }
 
             firstDay={1}
