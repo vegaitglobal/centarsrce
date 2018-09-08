@@ -1,3 +1,5 @@
+import colors from '../../helpers/colors';
+
 export default {
   container: {
     position: 'absolute',
@@ -13,5 +15,24 @@ export default {
   navIcon: {
     width: 30,
     height: 30
+  },
+  markedDate: {
+    container: {
+      backgroundColor: colors.lightPurple,
+      borderRadius: 5
+    },
+    text: {
+      color: 'black',
+      fontWeight: 'bold'
+    },
+  },
+  markedToday: {
+    container: {
+      backgroundColor: colors.darkPurple
+    },
+    text: {
+      color: colors.white,
+      fontWeight: 'bold'
+    },
   }
 }
