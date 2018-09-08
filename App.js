@@ -1,5 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation";
+import About from "./components/about/About";
+import HowToHelp from "./components/how_to_help/HowToHelp";
 import MainMenu from "./components/main_menu/MainMenuComponent";
 import Placeholder from "./components/Placeholder";
 import SplashScreen from "./components/splash_screen/SplashScreenComponent";
@@ -13,6 +15,8 @@ const RootStack = createStackNavigator(
     ThinkingAbout: ThinkingAbout,
     Placeholder: Placeholder,
     Diary: Diary,
+    HowToHelp: HowToHelp,
+    About: About
   },
   {
     initialRouteName: "SplashScreen",
