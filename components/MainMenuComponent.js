@@ -1,17 +1,7 @@
 import React from "react";
 import { Image, ScrollView, View } from "react-native";
 import Footer from "./footer/Footer";
-import NavigationButton from "./NavigationButton";
-
-const styles = {
-  image: {
-    width: "100%"
-  },
-  container: {
-    backgroundColor: "#b298c1",
-    display: "flex"
-  }
-};
+import NavigationButtonList from "./NavigationButtonList";
 
 export default class MainMenu extends React.Component {
   static navigationOptions = {
@@ -19,28 +9,34 @@ export default class MainMenu extends React.Component {
   };
 
   render() {
+    const { navigation } = this.props;
+
     return (
       <ScrollView>
         <Image
-          style={styles.image}
+          style={{ width: "100%" }}
           source={require("../images/homePage.png")}
         />
-        <View style={styles.container}>
-          <NavigationButton
-            label="Razmišljaš o samoubistvu?"
-            onPress={() => this.props.navigation.navigate("ThinkingAbout")}
-          />
-          <NavigationButton
-            label="Kako pomoći?"
-            onPress={() => this.props.navigation.navigate("Placeholder")}
-          />
-          <NavigationButton
-            label="Značajne informacije"
-            onPress={() => this.props.navigation.navigate("Placeholder")}
-          />
-          <NavigationButton
-            label="O udruženju i o aplikaciji"
-            onPress={() => this.props.navigation.navigate("Placeholder")}
+        <View>
+          <NavigationButtonList
+            buttons={[
+              {
+                label: "Razmišljaš o samoubistvu?",
+                onPress: () => navigation.navigate("ThinkingAbout")
+              },
+              {
+                label: "Kako pomoći?",
+                onPress: () => navigation.navigate("Placeholder")
+              },
+              {
+                label: "Značajne informacije",
+                onPress: () => navigation.navigate("Placeholder")
+              },
+              {
+                label: "O udruženju i o aplikaciji",
+                onPress: () => navigation.navigate("Placeholder")
+              }
+            ]}
           />
           <Footer />
         </View>

@@ -1,6 +1,19 @@
 import React from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import NavigationButton from "./NavigationButton";
+import NavigationButtonList from "./NavigationButtonList";
+
+const styles = StyleSheet.create({
+  contentContainer: {
+    margin: 30
+  },
+  title: {
+    color: "#8d62a6",
+    fontSize: 22
+  },
+  body: {
+    fontSize: 14
+  }
+});
 
 export default class ThinkingAbout extends React.Component {
   static navigationOptions = {
@@ -8,10 +21,12 @@ export default class ThinkingAbout extends React.Component {
   };
 
   render() {
+    const { navigation } = this.props;
+
     return (
       <ScrollView>
         <Image
-          style={styles.image}
+          style={{ width: "100%" }}
           source={require("../images/thinkingAbout.png")}
         />
         <View style={styles.contentContainer}>
@@ -26,63 +41,35 @@ export default class ThinkingAbout extends React.Component {
           {/* TODO */}
           <Text>Pročitaj više</Text>
         </View>
-        <View style={styles.listContainer}>
-          <NavigationButton
-            label="Kako da pomognem sebi sada?"
-            onPress={() => this.props.navigation.navigate("Placeholder")}
-          />
-          <NavigationButton
-            label="Moj sigurnosni plan"
-            onPress={() => this.props.navigation.navigate("Placeholder")}
-          />
-          <NavigationButton
-            label="Moj dnevnik"
-            onPress={() => this.props.navigation.navigate("Placeholder")}
-          />
-          <NavigationButton
-            label="Moj spomenar"
-            onPress={() => this.props.navigation.navigate("Placeholder")}
-          />
-          <NavigationButton
-            label="Psihološki priručnik"
-            onPress={() => this.props.navigation.navigate("Placeholder")}
-          />
-          <NavigationButton
-            label="Podrška"
-            onPress={() => this.props.navigation.navigate("Placeholder")}
-          />
-        </View>
+        <NavigationButtonList
+          buttons={[
+            {
+              label: "Kako da pomognem sebi sada?",
+              onPress: () => navigation.navigate("Placeholder")
+            },
+            {
+              label: "Moj sigurnosni plan",
+              onPress: () => navigation.navigate("Placeholder")
+            },
+            {
+              label: "Moj dnevnik",
+              onPress: () => navigation.navigate("Placeholder")
+            },
+            {
+              label: "Moj spomenar",
+              onPress: () => navigation.navigate("Placeholder")
+            },
+            {
+              label: "Psihološki priručnik",
+              onPress: () => navigation.navigate("Placeholder")
+            },
+            {
+              label: "Podrška",
+              onPress: () => navigation.navigate("Placeholder")
+            }
+          ]}
+        />
       </ScrollView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  header: {
-    backgroundColor: "#8d62a6",
-    color: "white",
-    fontSize: 16,
-    padding: 19,
-    textAlign: "center"
-  },
-  image: {
-    width: "100%"
-  },
-  contentContainer: {
-    margin: 30
-  },
-  title: {
-    color: "#8d62a6",
-    fontSize: 22
-  },
-  body: {
-    fontSize: 14
-  },
-  listContainer: {
-    backgroundColor: "#b298c1"
-  },
-  buttonStyle: {
-    marginHorizontal: 16,
-    marginVertical: 26
-  }
-});
