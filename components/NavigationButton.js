@@ -1,23 +1,27 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "white",
+    backgroundColor: "#ffffff",
     borderRadius: 999,
     padding: 20,
+    marginHorizontal: 26,
+    marginVertical: 8
+  },
+  text: {
     textAlign: "center"
   }
 });
 
-class NavigationButton extends React.Component {
+export default class NavigationButton extends React.Component {
   render() {
     return (
-      <View style={this.props.style}>
-        <Text style={styles.button}>{this.props.children}</Text>
-      </View>
+      <TouchableOpacity onPress={this.props.onPress}>
+        <View style={styles.button}>
+          <Text style={styles.text}>{this.props.label}</Text>
+        </View>
+      </TouchableOpacity>
     );
   }
 }
-
-export default NavigationButton;

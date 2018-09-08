@@ -27,24 +27,30 @@ export default class ThinkingAbout extends React.Component {
           <Text>Pročitaj više</Text>
         </View>
         <View style={styles.listContainer}>
-          <NavigationButton style={styles.buttonStyle}>
-            Kako da pomognem sebi sada?
-          </NavigationButton>
-          <NavigationButton style={styles.buttonStyle}>
-            Moj sigurnosni plan
-          </NavigationButton>
-          <NavigationButton style={styles.buttonStyle}>
-            Moj dnevnik
-          </NavigationButton>
-          <NavigationButton style={styles.buttonStyle}>
-            Moj spomenar
-          </NavigationButton>
-          <NavigationButton style={styles.buttonStyle}>
-            Psihološki priručnik
-          </NavigationButton>
-          <NavigationButton style={styles.buttonStyle}>
-            Podrška
-          </NavigationButton>
+          <NavigationButton
+            label="Kako da pomognem sebi sada?"
+            onPress={() => this.props.navigation.navigate("Placeholder")}
+          />
+          <NavigationButton
+            label="Moj sigurnosni plan"
+            onPress={() => this.props.navigation.navigate("Placeholder")}
+          />
+          <NavigationButton
+            label="Moj dnevnik"
+            onPress={() => this.props.navigation.navigate("Placeholder")}
+          />
+          <NavigationButton
+            label="Moj spomenar"
+            onPress={() => this.props.navigation.navigate("Placeholder")}
+          />
+          <NavigationButton
+            label="Psihološki priručnik"
+            onPress={() => this.props.navigation.navigate("Placeholder")}
+          />
+          <NavigationButton
+            label="Podrška"
+            onPress={() => this.props.navigation.navigate("Placeholder")}
+          />
         </View>
       </ScrollView>
     );
