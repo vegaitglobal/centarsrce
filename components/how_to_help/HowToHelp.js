@@ -67,15 +67,15 @@ export default class ThinkingAbout extends React.Component {
             buttons={[
               {
                 label: "Znaci upozorenja",
-                onPress: () => navigation.navigate("Placeholder")
+                onPress: () => navigation.navigate("WarnSigns")
               },
               {
                 label: "Priručnik podrške",
-                onPress: () => navigation.navigate("Placeholder")
+                onPress: () => navigation.navigate("SupportManual")
               },
               {
                 label: "Mitovi o samoubistvu",
-                onPress: () => navigation.navigate("Placeholder")
+                onPress: () => navigation.navigate("SuicideMyths")
               }
             ]}
           />

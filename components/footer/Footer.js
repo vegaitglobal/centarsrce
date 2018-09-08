@@ -8,24 +8,24 @@ export default class Footer extends React.Component {
       <View style={styles.container}>
         <TouchableOpacity style={styles.btnCon}>
           <Image
-            source={require("../../images/call.png")}
-            style={styles.navIcon}
+            source={require("../../images/poziv.png")}
+            style={styles.callIcon}
           />
-          <Text> Call </Text>
+          <Text>Poziv</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btnCon}>
           <Image
             source={require("../../images/mail.png")}
-            style={styles.navIcon}
+            style={styles.mailIcon}
           />
-          <Text> Email </Text>
+          <Text>Email</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btnCon}>
           <Image
             source={require("../../images/chat.png")}
-            style={styles.navIcon}
+            style={styles.chatIcon}
           />
-          <Text> Chat </Text>
+          <Text>Chat</Text>
         </TouchableOpacity>
       </View>
     );

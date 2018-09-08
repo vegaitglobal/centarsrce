@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import colors from "../../helpers/colors";
-import { normalize } from "../../helpers/sizes";
+import ArticleTitle from "../article_title/ArticleTitle";
 import Footer from "../footer/Footer";
 import NavigationButtonList from "../NavigationButtonList";
 import styles from "./styles";
@@ -39,8 +39,8 @@ export default class ThinkingAbout extends React.Component {
             style={{ width: "100%" }}
             source={require("../../images/thinkingAbout.png")}
           />
-          <View style={{ backgroundColor: colors.white }}>
-            <Text style={styles.title}>Molim te da prvo pročitaš sledeće</Text>
+          <View style={styles.innerContent}>
+            <ArticleTitle label="Molim te da prvo pročitaš sledeće" />
             <Text style={styles.body}>
               Ako te trenutno muče misli o samoubistvu, daj sebi malo vremena da
               pročitaš ovaj tekst. Trebaće ti samo pet minuta. Ne želim da te
@@ -55,27 +55,16 @@ export default class ThinkingAbout extends React.Component {
               />
             )}
             {this.state.seeingMore && (
-              <View>
-                <Text
-                  style={{
-                    color: colors.darkPurpleTransparent,
-                    fontSize: normalize(72),
-                    textAlign: "center"
-                  }}
-                >
-                  “
-                </Text>
-                <Text
-                  style={{
-                    color: colors.darkPurple,
-                    fontSize: normalize(14),
-                    fontStyle: "italic",
-                    fontWeight: "500",
-                    textAlign: "center"
-                  }}
-                >
-                  Samoubistvo se ne bira; ono se događa kada bol nadjača
-                  mehanizme koji inače služe da ga ublaže.
+              <View style={{ alignItems: "flex-start", flex: 1 }}>
+                <Image
+                  style={styles.mark}
+                  source={require("../../images/navodnici.png")}
+                />
+                <Text style={styles.quotedText}>
+                  Samoubistvo se ne bira;
+                  {"\n"}
+                  ono se događa kada bol nadjača mehanizme koji inače služe da
+                  ga ublaže.
                 </Text>
                 <Text style={styles.body}>
                   Kada bol postane suviše snažan da bismo mogli da ga
@@ -88,8 +77,20 @@ export default class ThinkingAbout extends React.Component {
                   Postoje dva načina da se otrgneš od razmišljanja o
                   samoubistvu:
                 </Text>
-                <Text>da pronađeš način da umanjiš bol</Text>
-                <Text>da unaprediš metode kojima se bol može prevazići.</Text>
+                <Text style={styles.bullet}>
+                  ⬤{"  "}
+                  <Text style={styles.bulletText}>
+                    da pronađeš način da umanjiš bol
+                  </Text>
+                </Text>
+
+                <Text style={styles.bullet}>
+                  ⬤{"  "}
+                  <Text style={styles.bulletText}>
+                    da unaprediš metode kojima se bol može prevazići.
+                  </Text>
+                </Text>
+
                 <Text style={styles.body}>Obe mogućnosti dolaze u obzir.</Text>
                 <Text style={styles.body}>
                   Sada bih želeo da ti skrenem pažnju na nekoliko stvari o
@@ -137,7 +138,7 @@ export default class ThinkingAbout extends React.Component {
             buttons={[
               {
                 label: "Kako da pomognem sebi sada?",
-                onPress: () => navigation.navigate("Placeholder")
+                onPress: () => navigation.navigate("HelpMyself")
               },
               {
                 label: "Moj sigurnosni plan",
@@ -149,15 +150,15 @@ export default class ThinkingAbout extends React.Component {
               },
               {
                 label: "Moj spomenar",
-                onPress: () => navigation.navigate("Placeholder")
+                onPress: () => navigation.navigate("MyFiles")
               },
               {
                 label: "Psihološki priručnik",
-                onPress: () => navigation.navigate("Placeholder")
+                onPress: () => navigation.navigate("PsychoManual")
               },
               {
                 label: "Podrška",
-                onPress: () => navigation.navigate("Placeholder")
+                onPress: () => navigation.navigate("Support")
               }
             ]}
           />

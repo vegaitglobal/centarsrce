@@ -5,7 +5,13 @@ import NavigationButtonList from "../NavigationButtonList";
 
 export default class MainMenu extends React.Component {
   static navigationOptions = {
-    title: "PODRŠKA"
+    headerLeft: null,
+    headerTitle: (
+      <Image
+        style={{ marginLeft: 20 }}
+        source={require("../../images/logo.png")}
+      />
+    )
   };
 
   render() {
@@ -31,7 +37,7 @@ export default class MainMenu extends React.Component {
                 },
                 {
                   label: "Značajne informacije",
-                  onPress: () => navigation.navigate("Placeholder")
+                  onPress: () => navigation.navigate("ValInfo")
                 },
                 {
                   label: "O udruženju i o aplikaciji",

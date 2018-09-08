@@ -24,8 +24,8 @@ export default class About extends React.Component {
               Centar “Srce” sa sedištem u Novom Sadu je volonterska, nevladina,
               neprofitna organizacija koja se bavi pružanjem emotivne podrške
               osobama u krizi i prevencijom samoubistva.
-            </Text>
-            <Text style={styles.body}>
+              {"\n"}
+              {"\n"}
               Svakog dana, od 17 do 23 časa, volonteri Centra “Srce” razgovaraju
               s ljudima koji su usamljeni, uznemireni, povređeni, tužni, očajni,
               nesigurni i - slušaju ih. Ne drže im moralne pridike, ne
@@ -34,14 +34,17 @@ export default class About extends React.Component {
               veruju da svaki čovek sam najbolje zna šta je dobro za njega. Zato
               što veruju da svaki čovek ima prava da sam odlučuje o svom životu,
               čak i ako odluči da ga okonča.
-            </Text>
-            <Text style={styles.body}>
+              {"\n"}
+              {"\n"}
               Svi podaci koje dobijemo od korisnika su strogo poverljivi i
               ostaju u okvirima Centra. Osobe koje nam se obraćaju mogu da
               zadrže anonimnost. Usluge Centra su besplatne.
+              {"\n"}
+              {"\n"}
+              Kontakt telefon: 0800-300-303
+              {"\n"}
+              Kontakt email: vanja@centarsrce.org
             </Text>
-            <Text style={styles.body}>Kontakt telefon: 0800-300-303</Text>
-            <Text style={styles.body}>Kontakt email: vanja@centarsrce.org</Text>
           </View>
         </ScrollView>
         <Footer />
