@@ -31,21 +31,7 @@ export default class Diary extends React.Component {
   constructor(props) {
     super(props);
 
-    let data = {
-      '2018-08-03': 'Neki tekst. Danas sam radio ... Tekst br adsmk',
-      '2018-08-05': 'Neki tekst. Danas sam radio ...a a',
-      '2018-08-06': 'Neki drugi Tekst',
-      '2018-08-15': 'Neki drugi Tekst',
-      '2018-08-16': 'Neki drugi Tekst',
-      '2018-08-17': 'Neki drugi Tekst',
-      '2018-08-18': 'Neki drugi Tekst',
-      '2018-08-23': 'Neki tekst. Danas sam radio ... Tekst br adsmk',
-      '2018-08-25': 'Neki tekst. Danas sam radio ...a a',
-      '2018-08-26': 'Neki drugi Tekst',
-      '2018-09-03': 'Lep dan na plazi',
-      '2018-09-05': 'Danas sam radio ...',
-      '2018-09-06': ' ...'
-    }
+    let data = require('../../data/diary.json');
     let keys = [];
     for(let k in data) keys.push(k);
     let markedDates = {}
