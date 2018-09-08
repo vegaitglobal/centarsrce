@@ -145,7 +145,7 @@ export default class ThinkingAbout extends React.Component {
               },
               {
                 label: "Moj dnevnik",
-                onPress: () => navigation.navigate("Placeholder")
+                onPress: () => navigation.navigate("Diary")
               },
               {
                 label: "Moj spomenar",

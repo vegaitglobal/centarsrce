@@ -1,3 +1,6 @@
+import colors from "../helpers/colors";
+import { normalize } from "../helpers/sizes";
+
 const headerHeight = 220;
 
 const fontFamily = {
@@ -28,6 +31,22 @@ export default {
     fontSize: 16,
     padding: 19,
     textAlign: "center"
+  },
+  title: {
+    color: colors.darkPurple,
+    fontSize: normalize(22),
+    textAlign: "center",
+    paddingHorizontal: normalize(24),
+    paddingTop: normalize(30)
+  },
+  body: {
+    fontSize: normalize(14),
+    paddingHorizontal: normalize(24),
+    paddingVertical: normalize(12)
+  },
+  container: {
+    flex: 1,
+    justifyContent: "space-between"
   },
   image: {
     width: "100%"
