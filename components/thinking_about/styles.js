@@ -22,5 +22,9 @@ export default {
     fontSize: normalize(14),
     paddingHorizontal: normalize(24),
     paddingVertical: normalize(12)
+  },
+  container: {
+    flex: 1,
+    justifyContent: "space-between"
   }
-}
+};
