@@ -37,7 +37,9 @@ export default class Footer extends React.Component {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.btnCon}
-          onPress={() => web("https://centarsrce.org/")}
+          onPress={() =>
+            web("https://tawk.to/chat/588a5f072889654c41459366/default")
+          }
         >
           <Image
             source={require("../../images/chat.png")}
