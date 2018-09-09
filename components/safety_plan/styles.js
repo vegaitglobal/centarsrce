@@ -2,6 +2,10 @@ import { StyleSheet } from "react-native";
 import colors from "../../helpers/colors";
 
 const styles = StyleSheet.create({
+  flexContainer: {
+    flex: 1,
+    justifyContent: "space-between"
+  },
   container: {
     paddingBottom: 70
   },

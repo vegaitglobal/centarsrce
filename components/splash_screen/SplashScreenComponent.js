@@ -7,6 +7,13 @@ export default class SplashScreen extends React.Component {
     header: null
   };
 
+  constructor(props) {
+    super(props);
+    this.props.navigation.addListener("didFocus", _ => {
+      setTimeout(() => this.props.navigation.navigate("MainMenu"), 1500);
+    });
+  }
+
   render() {
     return (
       <TouchableHighlight
