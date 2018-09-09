@@ -6,7 +6,7 @@ export default {
     color: colors.darkPurple,
     marginTop: 8,
     marginLeft: 8,
-    paddingHorizontal: normalize(24),
+    //paddingHorizontal: normalize(24),
     fontWeight: "bold",
     fontSize: normalize(14)
   },
@@ -20,7 +20,10 @@ export default {
   },
   body: {
     fontSize: normalize(14),
-    paddingHorizontal: normalize(24),
+    //paddingHorizontal: normalize(24),
     paddingVertical: normalize(12)
+  },
+  scrollView: {
+    paddingHorizontal: normalize(24)
   }
 };

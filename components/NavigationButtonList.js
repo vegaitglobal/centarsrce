@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#b298c1",
     borderColor: "#8d62a6",
     borderTopWidth: 10,
-    paddingTop: 32
+    paddingTop: 32,
+    paddingBottom: 32
   }
 });
 

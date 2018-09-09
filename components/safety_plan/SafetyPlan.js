@@ -1,6 +1,8 @@
+import Immutable, { List } from "immutable";
 import React from "react";
 import { AsyncStorage, ScrollView, Text, TextInput, View } from "react-native";
 import colors from "../../helpers/colors";
+import questions from "./questions";
 import styles from "./styles";
 
 const InputLabel = ({ text }) => <Text style={styles.inputLabel}>{text}</Text>;
@@ -26,20 +28,14 @@ export default class SafetyPlan extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = this.getInitialState();
-    AsyncStorage.getItem("safetyPlanState").then(stateAsString =>
-      this.setState(JSON.parse(stateAsString))
-    );
-  }
-
-  getInitialState() {
-    return {
-      one: "",
-      two: "",
-      three: "",
-      four: "",
-      five: ""
-    };
+    this.state = { questions: new List(questions.map(_ => "")) };
+    AsyncStorage.getItem("safetyPlanState").then(safetyPlansState => {
+      if (safetyPlansState) {
+        this.setState({
+          questions: Immutable.fromJS(JSON.parse(safetyPlansState))
+        });
+      }
+    });
   }
 
   render() {
@@ -48,76 +44,26 @@ export default class SafetyPlan extends React.Component {
         <Text style={styles.headerText}>
           Popuni upitnik i kreiraj svoj sigurnosni plan
         </Text>
-        <InputLabel text="Ako se ne osećam dobro, pričaću sa:" />
-        <Input
-          value={this.state.one}
-          onChangeText={text => {
-            this.setState({ one: text });
-            AsyncStorage.setItem(
-              "safetyPlanState",
-              JSON.stringify({
-                ...this.state,
-                one: text
-              })
-            );
-          }}
-        />
-        <InputLabel text="Tražiću pomoć od:" />
-        <Input
-          value={this.state.two}
-          onChangeText={text => {
-            this.setState({ two: text });
-            AsyncStorage.setItem(
-              "safetyPlanState",
-              JSON.stringify({
-                ...this.state,
-                two: text
-              })
-            );
-          }}
-        />
-        <InputLabel text="Smiriću se ako pokušam:" />
-        <Input
-          value={this.state.three}
-          onChangeText={text => {
-            this.setState({ three: text });
-            AsyncStorage.setItem(
-              "safetyPlanState",
-              JSON.stringify({
-                ...this.state,
-                three: text
-              })
-            );
-          }}
-        />
-        <InputLabel text="Moje sigurno mesto:" />
-        <Input
-          value={this.state.four}
-          onChangeText={text => {
-            this.setState({ four: text });
-            AsyncStorage.setItem(
-              "safetyPlanState",
-              JSON.stringify({
-                ...this.state,
-                four: text
-              })
-            );
-          }}
-        />
-        <InputLabel text="Osećaću se sigurno ako:" />
-        <Input
-          value={this.state.five}
-          onChangeText={text => {
-            this.setState({ five: text });
-            AsyncStorage.setItem(
-              "safetyPlanState",
-              JSON.stringify({
-                ...this.state,
-                five: text
-              })
-            );
-          }}
-        />
+        {questions.map((question, index) => (
+          <View key={`question${index}`}>
+            <InputLabel text={question} />
+            <Input
+              value={this.state.questions.get(index)}
+              onChangeText={text => {
+                this.setState(
+                  {
+                    questions: this.state.questions.set(index, text)
+                  },
+                  () =>
+                    AsyncStorage.setItem(
+                      "safetyPlanState",
+                      JSON.stringify(this.state.questions.toJS())
+                    )
+                );
+              }}
+            />
+          </View>
+        ))}
       </ScrollView>
     );
   }

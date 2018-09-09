@@ -8,7 +8,7 @@ export default {
   },
   body: {
     fontSize: normalize(14),
-    paddingHorizontal: normalize(24),
+    //paddingHorizontal: normalize(24),
     paddingVertical: normalize(12)
   },
   iText: {
@@ -16,6 +16,9 @@ export default {
     fontStyle: "italic",
     fontWeight: "bold",
     color: colors.lightPurple,
+    paddingHorizontal: normalize(24)
+  },
+  scrollView: {
     paddingHorizontal: normalize(24)
   }
 };

@@ -1,6 +1,5 @@
 import React from "react";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import colors from "../../helpers/colors";
 import ArticleTitle from "../article_title/ArticleTitle";
 import Footer from "../footer/Footer";
 import NavigationButtonList from "../NavigationButtonList";
@@ -17,18 +16,6 @@ export default class ThinkingAbout extends React.Component {
     title: "Kako pomoći?"
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      seeingMore: false
-    };
-    this.toggleSeeingMore = this.toggleSeeingMore.bind(this);
-  }
-
-  toggleSeeingMore() {
-    this.setState({ seeingMore: !this.state.seeingMore });
-  }
-
   render() {
     const { navigation } = this.props;
 
@@ -39,29 +26,25 @@ export default class ThinkingAbout extends React.Component {
             style={{ width: "100%" }}
             source={require("../../images/howToHelp.png")}
           />
-          <View style={{ backgroundColor: colors.white }}>
+          <View style={styles.innerContent}>
             <ArticleTitle label="Šta možete da uradite?" />
             <Text style={styles.body}>
-              Ukoliko ste primetili da osoba koju poznajete pati, ako posumnjate
-              da gubi volju za životom, ponudite joj razgovor. Potrebno je da
-              joj pokažete da nije sama. Stavite se u poziciju te osobe i to će
-              vam pomoći da bolje razumete kroz šta prolazi, a i pomoći će vama
-              da reagujete na prirodan način.
+              Istraživanja pokazuju da{" "}
+              <Text style={{ fontWeight: "bold" }}>
+                8 od 10 osoba koje razmišljaju o samoubistvu daju znake o svojoj
+                nameri.
+              </Text>{" "}
+              Tada je podrška koju dobijaju od okoline od izuzetnog značaja. U
+              nastavku se nalaze informacije koje bi mogle da ti pomognu da
+              prepoznaš znake i na njih reaguješ. Saznanje da neko nama bitan
+              razmišlja o samoubistvu može da izazove različite i bolne emocije
+              – poput tuge, besa, krivice, nerazumevanja, straha… Potpuno je
+              normalno da osetiš neke ili sve od tih emocija. Da bi očuvao/la
+              svoje zdravlje i bio podrška nekom ko pati pokušaj da u svojoj
+              okolini pronađeš osobe koje ti mogu pružiti podršku, sa kojima se
+              možeš posavetovati ili razgovarati i/ili stručnu pomoć psihologa
+              ili psihoterapeuta.
             </Text>
-            {!this.state.seeingMore && (
-              <ClickableText
-                text="Pročitaj više"
-                onPress={this.toggleSeeingMore}
-              />
-            )}
-            {this.state.seeingMore && (
-              <View>
-                <ClickableText
-                  text="Pročitaj manje"
-                  onPress={this.toggleSeeingMore}
-                />
-              </View>
-            )}
           </View>
           <NavigationButtonList
             buttons={[

@@ -16,15 +16,23 @@ export default class SupportManual extends React.Component {
           <ArticleTitle label="Priručnik podrške" />
           <Text style={styles.body}>
             Ukoliko si primetio/la da bliska osoba pati i posumnjao/la da gubi
-            volju za životom, ponudi joj razgovor. Potrebno je da joj pokažeš da
-            nije sama, da je razumeš i prihvataš takvu kakva jeste. Osoba koja
-            razmišlja o samoubistvu pati i potrebna joj je iskrena podrška i
-            razumevanje. Pokušaj da se staviš u njenu poziciju i to će ti pomoći
-            da bolje razumeš kroz šta prolazi, a i pomoći će tebi da reaguješ na
-            prirodan način. Bitno je da ne morališeš, ne sažaljevaš i ne daješ
-            brze savete. Osoba koja razmišlja o samoubistvu je već pokušala da
-            pomogne sebi na različite načine, ali ne uspeva. Dodatan pritisak
-            može da je zatvori i udalji od dalje komunikacije.
+            volju za životom,{" "}
+            <Text style={{ fontWeight: "bold" }}>ponudi joj razgovor.</Text>
+            {"\n"}
+            Potrebno je{" "}
+            <Text style={{ fontWeight: "bold" }}>
+              da joj pokažeš da nije sama, da je razumeš i prihvataš
+            </Text>
+            takvu kakva jeste. Osoba koja razmišlja o samoubistvu pati i
+            potrebna joj je iskrena podrška i razumevanje. Pokušaj da se staviš
+            u njenu poziciju i to će ti pomoći da bolje razumeš kroz šta
+            prolazi, a i pomoći će tebi da reaguješ na prirodan način. Bitno je
+            <Text style={{ fontWeight: "bold" }}>
+              da ne morališeš, ne sažaljevaš i ne daješ brze savete.
+            </Text>{" "}
+            Osoba koja razmišlja o samoubistvu je već pokušala da pomogne sebi
+            na različite načine, ali ne uspeva. Dodatan pritisak može da je
+            zatvori i udalji od dalje komunikacije.
             {"\n\n"}
             Pokaži da saosećaš sa njom, budi topao/la i strpljiv/a.{" "}
             <Text style={{ fontWeight: "bold" }}>
