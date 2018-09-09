@@ -44,8 +44,11 @@ export default {
     marginBottom: 10
   },
   inputContainer: {
-    backgroundColor: colors.darkPurple, // TODO
-    paddingBottom: 16
+    backgroundColor: colors.white,
+    paddingBottom: 16,
+    borderStyle: 'solid',
+    borderTopWidth: 1,
+    borderTopColor: colors.darkPurple,
   },
   input: {
     backgroundColor: colors.white,
@@ -53,11 +56,18 @@ export default {
     padding: 20,
     paddingBottom: 48
   },
-  saveBtn: {
-    position: "absolute",
-    bottom: 75,
-    right: 20,
-    elevation: 12
-    // color: colors.darkPurple
+  btnSave: {
+    elevation: 2,
+    zIndex:500,
+    backgroundColor: colors.darkPurple,
+    borderRadius: 999,
+    padding: 20,
+    marginHorizontal: 26,
+    marginVertical: 8
   },
+  btnSaveText: {
+    textAlign: "center",
+    color: colors.white,
+    fontWeight: "bold",
+  }
 }

@@ -1,18 +1,21 @@
 import React from 'react';
 import {
+  AsyncStorage,
   View,
   Image,
   Text,
   TextInput,
+  TouchableOpacity,
   ScrollView,
 } from 'react-native';
 import Footer from '../footer/Footer';
+import NavigationButton from '../NavigationButton';
 import colors from '../../helpers/colors';
 import styles from './styles';
 import reusableStyles from '../reusableStyles';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 import moment from 'moment';
-// import {LocaleConfig} from 'react-native-calendars';
+
 
 LocaleConfig.locales['rs'] = {
   monthNames: ['Januar','Februar','Mart','April','Maj','Jun','Jul','Avgust','Septembar','Oktobar','Novembar','Decembar'],
@@ -23,22 +26,6 @@ LocaleConfig.locales['rs'] = {
 
 LocaleConfig.defaultLocale = 'rs';
 
-const InputLabel = ({ text }) => <Text style={styles.inputLabel}>{text}</Text>;
-
-const Input = ({ value, onChangeText }) => (
-  <View style={styles.inputContainer}>
-    <TextInput
-      style={styles.input}
-      placeholder="Upiši ovde"
-      placeholderTextColor={colors.grey}
-      selectionColor={colors.darkPurple}
-      underlineColorAndroid="transparent"
-      value={value}
-      onChangeText={onChangeText}
-    />
-  </View>
-);
-
 export default class Diary extends React.Component {
   static navigationOptions = {
     title: "Moj dnevnik"
@@ -47,13 +34,9 @@ export default class Diary extends React.Component {
   constructor(props) {
     super(props);
 
-    let data = require('../../data/diary.json');
-    let keys = [];
-    for(let k in data) keys.push(k);
+    let data = {};
     let markedDates = {}
-    for(let k in keys) markedDates[keys[k]] = { "customStyles": styles.markedDate };
     markedDates[moment().format('YYYY-MM-DD')] = { "customStyles": styles.markedToday };
-
 
     this.state = {
       data: data,
@@ -61,6 +44,23 @@ export default class Diary extends React.Component {
       selected: moment().format('YYYY-MM-DD')
     }
     this.onDayPress = this.onDayPress.bind(this);
+    this.saveInfo = this.saveInfo.bind(this);
+    AsyncStorage.getItem("diary").then(diary => {
+      if(diary) {
+        let data = JSON.parse(diary);
+        let keys = [];
+        for(let k in data) keys.push(k);
+        let markedDates = {}
+        for(let k in keys) markedDates[keys[k]] = { "customStyles": styles.markedDate };
+        markedDates[moment().format('YYYY-MM-DD')] = { "customStyles": styles.markedToday };
+
+        this.setState({
+          data: data,
+          markedDates: markedDates,
+          selected: moment().format('YYYY-MM-DD')
+        })
+      }
+    });
   }
 
   onDayPress(day) {
@@ -74,6 +74,19 @@ export default class Diary extends React.Component {
       markedDates: markedDates,
       selected: day.dateString
     });
+  }
+
+  saveInfo() {
+    AsyncStorage.setItem("diary", JSON.stringify(this.state.data));
+    let keys = [];
+    for(let k in this.state.data) keys.push(k);
+    let markedDates = {}
+    for(let k in keys) markedDates[keys[k]] = { "customStyles": styles.markedDate };
+    markedDates[moment().format('YYYY-MM-DD')] = { "customStyles": styles.markedToday };
+
+    this.setState({
+      markedDates: markedDates,
+    })
   }
 
   render() {
@@ -122,14 +135,23 @@ export default class Diary extends React.Component {
             {
               (typeof this.state.data[this.state.selected] != "undefined")
               ? <Text style={styles.input}> {this.state.data[this.state.selected]} </Text>
-              : <TextInput
+              : <View><TextInput
                   style={styles.input}
                   placeholder="Upiši ovde"
                   placeholderTextColor={colors.grey}
                   selectionColor={colors.darkPurple}
                   underlineColorAndroid="transparent"
                   value={this.state.data[this.state.selected]}
+                  onChangeText={text => {
+                    this.state.data[this.state.selected] = text;
+                  }}
                 />
+                <TouchableOpacity onPress={this.saveInfo} >
+                  <View style={styles.btnSave}>
+                    <Text style={styles.btnSaveText}> Sačuvaj </Text>
+                  </View>
+                </TouchableOpacity>
+                </View>
             }
           </View>
 
