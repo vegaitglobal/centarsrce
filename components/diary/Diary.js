@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   AsyncStorage,
+  KeyboardAvoidingView,
   View,
   Image,
   Text,
@@ -91,72 +92,76 @@ export default class Diary extends React.Component {
 
   render() {
     return (
-      <View style={reusableStyles.mainContainer}>
-        
-        <ScrollView>
-          
-          <View style={reusableStyles.contentContainer}>
-            <Text style={reusableStyles.title}> Zabelezi svoja osećanja i dogadjaje </Text>
-            <Text style={reusableStyles.body}>
-              Ovo je deo u kom mozete beleziti sve sto vam se 
-              desilo u toku dana, kako ste se osecali danas, o
-              cemu ste razmisljali i sta vam je pomoglo da
-              pregurate ovaj dan. Na ovaj nacin mozete imati
-              realniji pogled svog stanja i mozete identifikovati
-              odredjena ponavljanja.
-            </Text>
-          </View>
+      <View style={styles.flexContainer}>
+        <KeyboardAvoidingView
+          style={styles.flexContainer}
+          behavior="position"
+          enabled
+        >  
+          <ScrollView>
+            
+            <View style={reusableStyles.contentContainer}>
+              <Text style={reusableStyles.title}> Zabelezi svoja osećanja i dogadjaje </Text>
+              <Text style={reusableStyles.body}>
+                Ovo je deo u kom mozete beleziti sve sto vam se 
+                desilo u toku dana, kako ste se osecali danas, o
+                cemu ste razmisljali i sta vam je pomoglo da
+                pregurate ovaj dan. Na ovaj nacin mozete imati
+                realniji pogled svog stanja i mozete identifikovati
+                odredjena ponavljanja.
+              </Text>
+            </View>
 
-          <Calendar
-            markingType={'custom'}
-            markedDates={this.state.markedDates}
-            maxDate={moment().format('YYYY-MM-DD') }
+            <Calendar
+              markingType={'custom'}
+              markedDates={this.state.markedDates}
+              maxDate={moment().format('YYYY-MM-DD') }
 
-            firstDay={1}
-            onDayPress={this.onDayPress}
-            theme={{
-              backgroundColor: '#ffffff',
-              calendarBackground: '#ffffff',
-              textSectionTitleColor: '#b6c1cd',
-              selectedDayBackgroundColor: colors.darkPurple,
-              selectedDayTextColor: '#ffffff',
-              todayTextColor: '#00adf5',
-              dayTextColor: '#2d4150',
-              textDisabledColor: '#d9e1e8',
-              dotColor: colors.darkPurple,
-              selectedDotColor: '#ffffff',
-              arrowColor: colors.darkPurple,
-              monthTextColor: colors.darkPurple,
-              textMonthFontWeight: 'bold',
-            }}
-          />
+              firstDay={1}
+              onDayPress={this.onDayPress}
+              theme={{
+                backgroundColor: '#ffffff',
+                calendarBackground: '#ffffff',
+                textSectionTitleColor: '#b6c1cd',
+                selectedDayBackgroundColor: colors.darkPurple,
+                selectedDayTextColor: '#ffffff',
+                todayTextColor: '#00adf5',
+                dayTextColor: '#2d4150',
+                textDisabledColor: '#d9e1e8',
+                dotColor: colors.darkPurple,
+                selectedDotColor: '#ffffff',
+                arrowColor: colors.darkPurple,
+                monthTextColor: colors.darkPurple,
+                textMonthFontWeight: 'bold',
+              }}
+            />
 
-          <View style={styles.inputContainer}>
-            {
-              (typeof this.state.data[this.state.selected] != "undefined")
-              ? <Text style={styles.input}> {this.state.data[this.state.selected]} </Text>
-              : <View><TextInput
-                  style={styles.input}
-                  placeholder="Upiši ovde"
-                  placeholderTextColor={colors.grey}
-                  selectionColor={colors.darkPurple}
-                  underlineColorAndroid="transparent"
-                  value={this.state.data[this.state.selected]}
-                  onChangeText={text => {
-                    this.state.data[this.state.selected] = text;
-                  }}
-                />
-                <TouchableOpacity onPress={this.saveInfo} >
-                  <View style={styles.btnSave}>
-                    <Text style={styles.btnSaveText}> Sačuvaj </Text>
+            <View style={styles.inputContainer}>
+              {
+                (typeof this.state.data[this.state.selected] != "undefined")
+                ? <Text style={styles.input}> {this.state.data[this.state.selected]} </Text>
+                : <View><TextInput
+                    style={styles.input}
+                    placeholder="Upiši ovde"
+                    placeholderTextColor={colors.grey}
+                    selectionColor={colors.darkPurple}
+                    underlineColorAndroid="transparent"
+                    value={this.state.data[this.state.selected]}
+                    onChangeText={text => {
+                      this.state.data[this.state.selected] = text;
+                    }}
+                  />
+                  <TouchableOpacity onPress={this.saveInfo} >
+                    <View style={styles.btnSave}>
+                      <Text style={styles.btnSaveText}> Sačuvaj </Text>
+                    </View>
+                  </TouchableOpacity>
                   </View>
-                </TouchableOpacity>
-                </View>
-            }
-          </View>
+              }
+            </View>
 
-        </ScrollView>
-        
+          </ScrollView>
+        </KeyboardAvoidingView>
         <Footer />
 
       </View>

@@ -12,6 +12,11 @@ export default {
     alignItems: 'center',
     zIndex: 600
   },
+  flexContainer: {
+    flex: 1,
+    justifyContent: "space-between",
+    backgroundColor: colors.white
+  },
   navIcon: {
     width: 30,
     height: 30
