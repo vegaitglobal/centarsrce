@@ -3,6 +3,7 @@ import {
   View,
   Image,
   Text,
+  TextInput,
   ScrollView,
 } from 'react-native';
 import Footer from '../footer/Footer';
@@ -22,6 +23,21 @@ LocaleConfig.locales['rs'] = {
 
 LocaleConfig.defaultLocale = 'rs';
 
+const InputLabel = ({ text }) => <Text style={styles.inputLabel}>{text}</Text>;
+
+const Input = ({ value, onChangeText }) => (
+  <View style={styles.inputContainer}>
+    <TextInput
+      style={styles.input}
+      placeholder="Upiši ovde"
+      placeholderTextColor={colors.grey}
+      selectionColor={colors.darkPurple}
+      underlineColorAndroid="transparent"
+      value={value}
+      onChangeText={onChangeText}
+    />
+  </View>
+);
 
 export default class Diary extends React.Component {
   static navigationOptions = {
@@ -38,21 +54,26 @@ export default class Diary extends React.Component {
     for(let k in keys) markedDates[keys[k]] = { "customStyles": styles.markedDate };
     markedDates[moment().format('YYYY-MM-DD')] = { "customStyles": styles.markedToday };
 
+
     this.state = {
-      markedDates: markedDates
-      // markedDates: {
-      //   '2018-08-03': { customStyles: styles.markedDate },
-      //   '2018-08-05': { customStyles: styles.markedDate },
-      //   '2018-08-06': { customStyles: styles.markedDate },
-      //   '2018-08-23': { customStyles: styles.markedDate },
-      //   '2018-08-25': { customStyles: styles.markedDate },
-      //   '2018-08-26': { customStyles: styles.markedDate },
-      //   '2018-09-03': { customStyles: styles.markedDate },
-      //   '2018-09-05': { customStyles: styles.markedDate },
-      //   '2018-09-06': { customStyles: styles.markedDate },
-      //   '2018-09-08': { customStyles: styles.markedToday },
-      // }
+      data: data,
+      markedDates: markedDates,
+      selected: moment().format('YYYY-MM-DD')
     }
+    this.onDayPress = this.onDayPress.bind(this);
+  }
+
+  onDayPress(day) {
+    let keys = [];
+    for(let k in this.state.data) keys.push(k);
+    let markedDates = {}
+    for(let k in keys) markedDates[keys[k]] = { "customStyles": styles.markedDate };
+    markedDates[day.dateString] = { "customStyles": styles.markedToday };
+
+    this.setState({
+      markedDates: markedDates,
+      selected: day.dateString
+    });
   }
 
   render() {
@@ -79,6 +100,7 @@ export default class Diary extends React.Component {
             maxDate={moment().format('YYYY-MM-DD') }
 
             firstDay={1}
+            onDayPress={this.onDayPress}
             theme={{
               backgroundColor: '#ffffff',
               calendarBackground: '#ffffff',
@@ -95,6 +117,21 @@ export default class Diary extends React.Component {
               textMonthFontWeight: 'bold',
             }}
           />
+
+          <View style={styles.inputContainer}>
+            {
+              (typeof this.state.data[this.state.selected] != "undefined")
+              ? <Text style={styles.input}> {this.state.data[this.state.selected]} </Text>
+              : <TextInput
+                  style={styles.input}
+                  placeholder="Upiši ovde"
+                  placeholderTextColor={colors.grey}
+                  selectionColor={colors.darkPurple}
+                  underlineColorAndroid="transparent"
+                  value={this.state.data[this.state.selected]}
+                />
+            }
+          </View>
 
         </ScrollView>
         

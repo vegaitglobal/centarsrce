@@ -35,5 +35,22 @@ export default {
       color: colors.white,
       fontWeight: 'bold'
     },
+  },
+  // Copied from SafetyPlan
+  inputLabel: {
+    fontSize: 16,
+    fontWeight: "500",
+    margin: 24,
+    marginBottom: 10
+  },
+  inputContainer: {
+    backgroundColor: colors.darkPurple, // TODO
+    paddingBottom: 16
+  },
+  input: {
+    backgroundColor: colors.white,
+    fontWeight: "500",
+    padding: 20,
+    paddingBottom: 48
   }
 }
