@@ -2,8 +2,8 @@ import { StyleSheet } from "react-native";
 import colors from "../../helpers/colors";
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: colors.white
+  container: {
+    paddingBottom: 70
   },
   headerText: {
     color: colors.darkPurple,
