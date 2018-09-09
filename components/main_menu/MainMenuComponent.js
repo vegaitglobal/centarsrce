@@ -8,7 +8,7 @@ export default class MainMenu extends React.Component {
     headerLeft: null,
     headerTitle: (
       <Image
-        style={{ marginLeft: 20 }}
+        style={{ marginLeft: 20, width: 122, height: 35 }}
         source={require("../../images/logo.png")}
       />
     )

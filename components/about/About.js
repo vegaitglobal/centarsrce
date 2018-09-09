@@ -1,5 +1,6 @@
 import React from "react";
-import { Image, ScrollView, Text, View } from "react-native";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { email, phonecall, web } from "react-native-communications";
 import colors from "../../helpers/colors";
 import ArticleTitle from "../article_title/ArticleTitle";
 import Footer from "../footer/Footer";
@@ -18,7 +19,7 @@ export default class About extends React.Component {
             style={{ width: "100%" }}
             source={require("../../images/about.png")}
           />
-          <View style={{ backgroundColor: colors.white }}>
+          <View style={styles.innerContent}>
             <ArticleTitle label="Osnovne informacije" />
             <Text style={styles.body}>
               Centar „Srce“ je neprofitna, volonterska i nevladina organizacija,
@@ -33,16 +34,47 @@ export default class About extends React.Component {
               ljudi mogu da priznaju i poštuju osećanja drugih. Svi podaci koje
               dobijemo od korisnika su strogo poverljivi i ostaju u okvirima
               Centra. Osobe koje nam se obraćaju mogu da zadrže anonimnost.
-              {"\n"}
-              {"\n"}
-              Kontakt telefon: 0800-300-303
-              {"\n"}
-              Kontakt email: vanja@centarsrce.org
-              {"\n"}
-              Više informacija na sajtu: www.centarsrce.org
-              {"\n"}
-              {"\n"}O aplikaciji „Podrška“:
-              {"\n"}
+            </Text>
+            <View>
+              <View style={styles.infoCon}>
+                <Text>Kontakt telefon: </Text>
+                <TouchableOpacity onPress={() => phonecall("0800300303", true)}>
+                  <Text style={{ color: colors.darkPurple }}>0800-300-303</Text>
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.infoCon}>
+                <Text>Kontakt email: </Text>
+                <TouchableOpacity
+                  onPress={() =>
+                    email(
+                      ["vanja@centarsrce.org"],
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined
+                    )
+                  }
+                >
+                  <Text style={{ color: colors.darkPurple }}>
+                    vanja@centarsrce.org
+                  </Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.infoCon}>
+                <Text>Više informacija na sajtu: </Text>
+                <TouchableOpacity
+                  onPress={() => web("https://www.centarsrce.org")}
+                >
+                  <Text style={{ color: colors.darkPurple }}>
+                    www.centarsrce.org
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <Text style={styles.body}>
+              O aplikaciji „Podrška“:
+              {"\n\n"}
               Kada sve ono sa čime se suočavamo postane preveliko i deluje da
               nikada neće prestati potrebna nam je sva moguća podrška.
               Aplikacija je zamišljena kao PODRŠKA u trenucima kada nam je
