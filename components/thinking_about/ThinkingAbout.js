@@ -1,6 +1,5 @@
 import React from "react";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import colors from "../../helpers/colors";
 import ArticleTitle from "../article_title/ArticleTitle";
 import Footer from "../footer/Footer";
 import NavigationButtonList from "../NavigationButtonList";
@@ -40,13 +39,11 @@ export default class ThinkingAbout extends React.Component {
             source={require("../../images/thinkingAbout.png")}
           />
           <View style={styles.innerContent}>
-            <ArticleTitle label="Molim te da prvo pročitaš sledeće" />
+            <ArticleTitle label="Razmišljaš o samoubistvu?" />
             <Text style={styles.body}>
-              Ako te trenutno muče misli o samoubistvu, daj sebi malo vremena da
-              pročitaš ovaj tekst. Trebaće ti samo pet minuta. Ne želim da te
-              odgovaram od tvojih neprijatnih osećanja. Nisam ni psihoterapeut
-              niti bilo kakav drugi stručnjak za mentalno zdravlje, već samo
-              neko ko zna kako je kada se osećaš loše.
+              Veliki broj ljudi u nekom trenutku pomisli na samoubistvo. Misli
+              da se okonča svoj život može se pojaviti iz raznih razloga i često
+              njihova pojava izazove strah u nama.
             </Text>
             {!this.state.seeingMore && (
               <ClickableText
@@ -55,77 +52,36 @@ export default class ThinkingAbout extends React.Component {
               />
             )}
             {this.state.seeingMore && (
-              <View style={{ alignItems: "flex-start", flex: 1 }}>
-                <Image
-                  style={styles.mark}
-                  source={require("../../images/navodnici.png")}
-                />
-                <Text style={styles.quotedText}>
-                  Samoubistvo se ne bira;
+              <View style={{ flex: 1, alignItems: "flex-start" }}>
+                <Text style={styles.expandedText}>
+                  Verovatno se osećaš usamljeno, zbunjeno, preplavljeno raznim
+                  snažnim osećanjima, bespomoćno. Možda osećaš tugu, krivicu,
+                  bes, stid… Hronično osećanje praznine te dovodi u iskušenje da
+                  pomisliš ima li smisla dalje nastaviti sa životom. Ponekad su
+                  osećanja toliko snažna da ti se čini da gubiš kontrolu, da ne
+                  možeš više da izdržiš. Kada pomisliš da želiš da se ubiješ, ne
+                  brini to nije znak da si poludeo/la ili da si slaba osoba.{" "}
+                  <Text style={{ fontWeight: "bold" }}>
+                    Jednostavno u trenutku kada postane jako teško samoubistvo
+                    se učini kao rešenje da se izbrišu snažna i preplavljujuća
+                    osećanja.
+                  </Text>{" "}
+                  Međutim, važno je da znaš da{" "}
+                  <Text style={{ fontWeight: "bold" }}>
+                    u tim trenucima nisi sam/a.
+                  </Text>
                   {"\n"}
-                  ono se događa kada bol nadjača mehanizme koji inače služe da
-                  ga ublaže.
-                </Text>
-                <Text style={styles.body}>
-                  Kada bol postane suviše snažan da bismo mogli da ga
-                  prevaziđemo, tada se javlja misao o samoubistvu. Samoubistvo
-                  nije ni dobro ni pogrešno; nije nedostatak karaktera; ono je
-                  moralno neutralno.
-                </Text>
-                <Text style={styles.body}>
-                  To je prosto nesrazmera između bola i načina da se on ublaži.
-                  Postoje dva načina da se otrgneš od razmišljanja o
-                  samoubistvu:
-                </Text>
-                <Text style={styles.bullet}>
-                  ⬤{"  "}
-                  <Text style={styles.bulletText}>
-                    da pronađeš način da umanjiš bol
-                  </Text>
-                </Text>
-
-                <Text style={styles.bullet}>
-                  ⬤{"  "}
-                  <Text style={styles.bulletText}>
-                    da unaprediš metode kojima se bol može prevazići.
-                  </Text>
-                </Text>
-
-                <Text style={styles.body}>Obe mogućnosti dolaze u obzir.</Text>
-                <Text style={styles.body}>
-                  Sada bih želeo da ti skrenem pažnju na nekoliko stvari o
-                  kojima bi trebalo da porazmisliš:
-                </Text>
-                <View style={{ backgroundColor: colors.darkPurpleTransparent }}>
-                  <Text style={styles.body}>
-                    <Text style={{ fontWeight: "bold" }}>
-                      Treba da znaš da ima ljudi koji zaista uspevaju da
-                      prebrode sva svoja razmišljanja o samoubistvu
-                    </Text>{" "}
-                    - čak i ljudi koji se osećaju isto tako loše kao i ti sada.
-                    Statistički, šanse da i ti to ostvariš su sasvim dobre.
-                    Nadam se da ti ova informacija pruža barem nekakvu nadu.
-                  </Text>
-                  <Text style={styles.body}>
-                    Razmišljanja o samoubistvu su sama po sebi traumatična.
-                    Nakon što ona izblede, moraš nastaviti da brineš o sebi.{" "}
-                    <Text style={{ fontWeight: "bold" }}>
-                      Terapija je zaista dobra ideja.
-                    </Text>
-                  </Text>
-                  <Text style={styles.body}>
-                    Ljudi često pribegavaju samoubistvu kada traže{" "}
-                    <Text style={{ fontWeight: "bold" }}>
-                      sklonište od bola kome su izloženi
-                    </Text>
-                    . Zapamti i da je osećaj olakšanja od bola samo osećaj i da
-                    moraš biti živ da bi ga osetio. Nećeš nikako moći da osetiš
-                    to olakšanje koje ti je tako potrebno ukoliko si mrtav.
-                  </Text>
-                </View>
-                <Text style={styles.body}>
-                  Pa, kao što vidiš, prošlo je već nekoliko minuta i ti si još
-                  sa mnom. To mi je zaista drago.
+                  Misli o samoubistvu nisu poput prehlade i ne prolaze olako,
+                  ali nisu ni sramota koja bi nas sprečila da potražimo pomoć.
+                  Postoje razne mogućnosti kako doći do podrške, nadamo se da će
+                  ti ova aplikacija pomoći da ih prepoznaš.
+                  {"\n"}
+                  Kroz ovu aplikaciju ti nudimo načine kako da pomogneš sebi i
+                  nađeš podršku kada se suočiš sa neprijatnim osećanjima i
+                  mislima. Ovaj meni sadrži dodatne stranice na kojima možeš
+                  pronaći korisne saveta, kao i da kreiraš svoj kutak koji će ti
+                  pomoći kada postane teško. Svaka stranica sadrži objašnjenje
+                  kako da je koristiš, nadamo se da će ti one biti od pomoći.
                 </Text>
                 <ClickableText
                   text="Pročitaj manje"

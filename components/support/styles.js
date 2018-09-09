@@ -7,7 +7,10 @@ export default {
   },
   body: {
     fontSize: normalize(14),
-    paddingHorizontal: normalize(24),
+    //paddingHorizontal: normalize(24),
     paddingVertical: normalize(12)
+  },
+  scrollView: {
+    paddingHorizontal: normalize(24)
   }
 };

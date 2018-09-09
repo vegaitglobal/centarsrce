@@ -54,6 +54,7 @@ export default class ValInfo extends React.Component {
             razmišlja o samoubistvu, načinu na koji bi to uradila, kada i drugo,
             ona s vremenom počinje u sve većoj meri da “gasi” odnosno umanjuje
             urođeni strah od smrti i da se “navikava” na po sebe fatalan prizor.
+            {"\n\n"}
             Upravo zbog toga, bitno je otvoreno pitati osobu da li razmišlja o
             samoubistvu, proceniti u kojoj meri je prisutna namera i u kojoj
             meri je osoba spremna da naudi sebi. Bitno je ponuditi neosuđujući

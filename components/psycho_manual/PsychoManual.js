@@ -19,36 +19,45 @@ export default class PsychoManual extends React.Component {
             osoba ostvaruje svoje sposobnosti, može da se nosi sa normalnim
             nivoom stresa u životu, produktivno da radi i da je u mogućnosti da
             doprinese svojoj zajednici. Kao što treba da vodimo računa o
-            fizičkom zdravlju, tako ne smemo da zanemarimo ni brigu o svom
-            mentalnom zdravlju. Određene strategije mogu značajno doprineti
-            prevenciji problema, kao i samom suočavanju sa njima:
+            fizičkom zdravlju, tako{" "}
+            <Text style={{ fontWeight: "bold" }}>
+              ne smemo da zanemarimo ni brigu o svom mentalnom zdravlju.
+            </Text>{" "}
+            Određene strategije mogu značajno doprineti prevenciji problema, kao
+            i samom suočavanju sa njima:
           </Text>
           <Text style={styles.bullet}>
             ➊ {"  "}
             <Text style={styles.bulletText}>
-              Značajno je imati bliske odnose sa drugim ljudima. Podržavajući
-              roditelji, prijatelji ili druge bliske osobe nam pružaju osećaj
-              pripadnosti, a samo naše opažanje da postoji neko ko je tu za nas
-              u teškim momentima, utiče pozitivno na naše mentalno zdravlje.
-              Drugi nam mogu pomoći da problem sagledamo sa različite tačke
-              gledišta, ili prosto ukazati na to da nismo sami.
+              Značajno je imati{" "}
+              <Text style={{ fontWeight: "bold" }}>
+                bliske odnose sa drugim ljudima.
+              </Text>{" "}
+              Podržavajući roditelji, prijatelji ili druge bliske osobe nam
+              pružaju osećaj pripadnosti, a samo naše opažanje da postoji neko
+              ko je tu za nas u teškim momentima, utiče pozitivno na naše
+              mentalno zdravlje. Drugi nam mogu pomoći da problem sagledamo sa
+              različite tačke gledišta, ili prosto ukazati na to da nismo sami.
             </Text>
           </Text>
           <Text style={styles.bullet}>
             ➋{"  "}
             <Text style={styles.bulletText}>
-              Razgovaraj o svojim osećajima! Značajno je da povremeno posmatramo
-              kako se osećamo i vodimo brigu o istom. Razgovor o tome kako se
-              osećaš nije znak slabosti, niti je vođenje računa o sebi
-              sebičnost. Oba su znak da vodiš računa o svom mentalnom zdravlju.
-              Sam razgovor može pomoći da se nosiš sa problemom sa kojim se
-              suočavaš već duži period.
+              <Text style={{ fontWeight: "bold" }}>
+                Razgovaraj o svojim osećajima!
+              </Text>{" "}
+              Značajno je da povremeno posmatramo kako se osećamo i vodimo brigu
+              o istom. Razgovor o tome kako se osećaš nije znak slabosti, niti
+              je vođenje računa o sebi sebičnost. Oba su znak da vodiš računa o
+              svom mentalnom zdravlju. Sam razgovor može pomoći da se nosiš sa
+              problemom sa kojim se suočavaš već duži period.
             </Text>
           </Text>
           <Text style={styles.bullet}>
             ➌{"  "}
             <Text style={styles.bulletText}>
-              Napravi pauzu! Kada se osećamo preplavljeno, u redu je odmoriti
+              Napravi pauzu! Kada se osećamo preplavljeno,{" "}
+              <Text style={{ fontWeight: "bold" }}>u redu je odmoriti</Text>
               tako što ćemo raditi nešto što nam prija, ili čak ne raditi mnogo
               toga. Udahni, oslušni svoje telo. Ukoliko se osećaš umorno, daj
               sebi vremena da nadoknadiš izgubljeno.
@@ -59,8 +68,11 @@ export default class PsychoManual extends React.Component {
             <Text style={styles.bulletText}>
               Potraži pomoć! Niko od nas nije nadčovek. Svako od nas iskusi
               stanje anksioznosti ili se u nekom periodu života nađe u emotivnoj
-              krizi. Ukoliko osetimo da nam je previše teško, bitno je da umemo
-              da potražimo pomoć bliskih osoba ili stručnjaka.
+              krizi. Ukoliko osetimo da nam je previše teško,{" "}
+              <Text style={{ fontWeight: "bold" }}>
+                bitno je da umemo da potražimo pomoć bliskih osoba ili
+                stručnjaka.
+              </Text>
             </Text>
           </Text>
           <Text style={styles.bullet}>
@@ -82,12 +94,15 @@ export default class PsychoManual extends React.Component {
           <Text style={styles.bullet}>
             ➏ {"  "}
             <Text style={styles.bulletText}>
-              Neophodno je voditi računa o fizičkom zdravlju. Podela na fizičko
-              i mentalno zdravlje, iako je široko rasprostranjena, ipak jeste
-              veštačka tvorevina. Izreka “U zdravom telu, zdrav duh”
-              najslikovitije prikazuje uzajamni značaj jednog na drugo. Kao što
-              telo treba zdravo hraniti, razvijati, odmarati, negovati tako i
-              psihički deo treba razvijati.
+              Neophodno je{" "}
+              <Text style={{ fontWeight: "bold" }}>
+                voditi računa o fizičkom zdravlju.
+              </Text>{" "}
+              Podela na fizičko i mentalno zdravlje, iako je široko
+              rasprostranjena, ipak jeste veštačka tvorevina. Izreka “U zdravom
+              telu, zdrav duh” najslikovitije prikazuje uzajamni značaj jednog
+              na drugo. Kao što telo treba zdravo hraniti, razvijati, odmarati,
+              negovati tako i psihički deo treba razvijati.
               {"\n\n"}
             </Text>
           </Text>
