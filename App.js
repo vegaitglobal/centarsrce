@@ -16,6 +16,8 @@ import SupportManual from "./components/support_manual/SupportManual";
 import ThinkingAbout from "./components/thinking_about/ThinkingAbout";
 import ValInfo from "./components/val_info/ValuableInfo";
 import WarnSigns from "./components/warn_signs/WarnSigns";
+import colors from "./helpers/colors";
+import { normalize } from "./helpers/sizes";
 
 const RootStack = createStackNavigator(
   {
@@ -42,8 +44,10 @@ const RootStack = createStackNavigator(
       headerStyle: {
         backgroundColor: "#8d62a6"
       },
+      headerTintColor: colors.white,
       headerTitleStyle: {
-        color: "#ffffff"
+        fontSize: normalize(16),
+        fontWeight: "500"
       }
     }
   }
