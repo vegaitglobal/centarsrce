@@ -9,6 +9,7 @@ import {
   View
 } from "react-native";
 import colors from "../../helpers/colors";
+import Footer from "../footer/Footer";
 import questions from "./questions";
 import styles from "./styles";
 
@@ -47,35 +48,42 @@ export default class SafetyPlan extends React.Component {
 
   render() {
     return (
-      <KeyboardAvoidingView behavior="position" enabled>
-        <ScrollView>
-          <View style={styles.container}>
-            <Text style={styles.headerText}>
-              Popuni upitnik i kreiraj svoj sigurnosni plan
-            </Text>
-            {questions.map((question, index) => (
-              <View key={`question${index}`}>
-                <InputLabel text={question} />
-                <Input
-                  value={this.state.questions.get(index)}
-                  onChangeText={text => {
-                    this.setState(
-                      {
-                        questions: this.state.questions.set(index, text)
-                      },
-                      () =>
-                        AsyncStorage.setItem(
-                          "safetyPlanState",
-                          JSON.stringify(this.state.questions.toJS())
-                        )
-                    );
-                  }}
-                />
-              </View>
-            ))}
-          </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
+      <View style={styles.flexContainer}>
+        <KeyboardAvoidingView
+          style={styles.flexContainer}
+          behavior="position"
+          enabled
+        >
+          <ScrollView>
+            <View style={styles.container}>
+              <Text style={styles.headerText}>
+                Popuni upitnik i kreiraj svoj sigurnosni plan
+              </Text>
+              {questions.map((question, index) => (
+                <View key={`question${index}`}>
+                  <InputLabel text={question} />
+                  <Input
+                    value={this.state.questions.get(index)}
+                    onChangeText={text => {
+                      this.setState(
+                        {
+                          questions: this.state.questions.set(index, text)
+                        },
+                        () =>
+                          AsyncStorage.setItem(
+                            "safetyPlanState",
+                            JSON.stringify(this.state.questions.toJS())
+                          )
+                      );
+                    }}
+                  />
+                </View>
+              ))}
+            </View>
+          </ScrollView>
+        </KeyboardAvoidingView>
+        <Footer />
+      </View>
     );
   }
 }
