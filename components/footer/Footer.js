@@ -21,7 +21,7 @@ export default class Footer extends React.Component {
           style={styles.btnCon}
           onPress={() =>
             email(
-              "vanja@centarsrce.org",
+              ["vanja@centarsrce.org"],
               undefined,
               undefined,
               undefined,
