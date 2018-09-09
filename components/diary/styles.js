@@ -52,5 +52,12 @@ export default {
     fontWeight: "500",
     padding: 20,
     paddingBottom: 48
-  }
+  },
+  saveBtn: {
+    position: "absolute",
+    bottom: 75,
+    right: 20,
+    elevation: 12
+    // color: colors.darkPurple
+  },
 }
