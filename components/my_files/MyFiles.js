@@ -29,6 +29,7 @@ export default class MyFiles extends React.Component {
   }
 
   render() {
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
@@ -43,7 +44,7 @@ export default class MyFiles extends React.Component {
           <View>
             <TouchableOpacity
               style={styles.photoImgCon}
-              onPress={() => ToastAndroid.show("Hi human!", ToastAndroid.SHORT)}
+              onPress={() => navigation.navigate("Camera")}
             >
               <Image
                 style={styles.photo}

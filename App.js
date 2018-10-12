@@ -1,6 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation";
 import About from "./components/about/About";
+import Camera from "./components/camera/Camera";
 import Diary from "./components/diary/Diary";
 import HelpMyself from "./components/help_myself/HelpMyself";
 import HowToHelp from "./components/how_to_help/HowToHelp";
@@ -21,6 +22,7 @@ import { normalize } from "./helpers/sizes";
 
 const RootStack = createStackNavigator(
   {
+    Camera: { screen: Camera, navigationOptions: { header: null } },
     SplashScreen: SplashScreen,
     MainMenu: MainMenu,
     SafetyPlan: SafetyPlan,

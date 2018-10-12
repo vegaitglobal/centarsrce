@@ -3,30 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-native-scripts": "1.14.0",
-    "jest-expo": "~27.0.0",
+    "@babel/preset-stage-0": "^7.0.0",
     "react-test-renderer": "16.3.1"
   },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
     "test": "jest"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "react-native"
   },
   "dependencies": {
-    "expo": "^27.0.1",
     "file-system": "^2.2.2",
     "immutable": "^3.8.2",
     "moment": "^2.22.2",
     "react": "16.3.1",
     "react-native": "~0.55.2",
     "react-native-calendars": "^1.20.0",
+    "react-native-camera": "git+https://git@github.com/react-native-community/react-native-camera",
     "react-native-communications": "^2.2.1",
+    "react-native-fs": "^2.11.18",
+    "react-native-store-photos-album": "github:francisco-sanchez-molina/react-native-store-photos-album",
     "react-navigation": "^2.13.0"
   }
 }
