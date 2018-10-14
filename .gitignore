@@ -18,3 +18,12 @@ yarn-error.log*
 
 /android/app/build
 /android/build
+/android/.gradle
+/android/.idea/libraries
+/android/.idea/gradle.xml
+/android/.idea/modules.xml
+/android/.idea/misc.xml
+/android/.idea/vcs.xml
+/android/.idea/runConfigurations.xml
+/android/.idea/workspace.xml
+/android/.idea/caches/
