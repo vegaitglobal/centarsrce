@@ -22,7 +22,7 @@ import { normalize } from "./helpers/sizes";
 
 const RootStack = createStackNavigator(
   {
-    Camera: { screen: Camera, navigationOptions: { header: null } },
+    Camera: Camera,
     SplashScreen: SplashScreen,
     MainMenu: MainMenu,
     SafetyPlan: SafetyPlan,

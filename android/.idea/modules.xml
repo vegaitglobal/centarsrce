@@ -5,6 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/centarsrce.iml" filepath="$PROJECT_DIR$/centarsrce.iml" />
       <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-camera/android/react-native-camera.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-camera/android/react-native-camera.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-document-picker/android/react-native-document-picker.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-document-picker/android/react-native-document-picker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-fs/android/react-native-fs.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-fs/android/react-native-fs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-store-photos-album/android/react-native-store-photos-album.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-store-photos-album/android/react-native-store-photos-album.iml" />
     </modules>
   </component>
 </project>

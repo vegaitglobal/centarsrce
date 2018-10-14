@@ -1,19 +1,16 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity, Text, Platform } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { RNCamera } from 'react-native-camera';
-import CameraRoll from 'react-native-store-photos-album';
+import Toast from 'react-native-easy-toast';
+import { moveAttachment, dirHome } from '../my_files/LocalStorage';
 
 const moment = require('moment');
-const RNFS = require('react-native-fs');
-
-const dirHome = Platform.select({
-  ios: `${RNFS.DocumentDirectoryPath}/CentarSrce`,
-  android: `${RNFS.ExternalStorageDirectoryPath}/CentarSrce`
-});
-
-const dirPictures = `${dirHome}/Pictures`;
 
 export default class Camera extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -26,18 +23,20 @@ export default class Camera extends React.Component {
             flashMode={RNCamera.Constants.FlashMode.off}
             permissionDialogTitle={'Permission to use camera'}
             permissionDialogMessage={'We need your permission to use your camera phone'}
-            onGoogleVisionBarcodesDetected={({ barcodes }) => {
-              console.log(barcodes)
-            }}
-        />
-        <View style={{flex: 0, flexDirection: 'row', justifyContent: 'center',}}>
-        <TouchableOpacity
-            onPress={this.takePicture}
-            style = {styles.capture}
         >
-            <Text style={{fontSize: 14}}> SNAP </Text>
-        </TouchableOpacity>
-        </View>
+          <View style={{flex: 0, flexDirection: 'row', justifyContent: 'center',}}>
+            <TouchableOpacity
+                onPress={this.takePicture}
+                style = {styles.capture}
+            >
+                <Text style={{fontSize: 14}}> Slikaj </Text>
+            </TouchableOpacity>
+          </View>
+        </RNCamera>
+        <Toast
+          ref="toast"
+          position="bottom"
+        />
       </View>
     );
   }
@@ -45,8 +44,7 @@ export default class Camera extends React.Component {
   takePicture = async () => {
     if (this.camera) {
       const options = { quality: 0.5, base64: true };
-      const data = await this.camera.takePictureAsync(options)
-      CameraRoll.saveToCameraRoll({uri: data.uri, album: 'CentarSrce'}, 'photo')
+      const data = await this.camera.takePictureAsync(options);
       this.saveImage(data.uri);
     }
   };
@@ -55,12 +53,13 @@ export default class Camera extends React.Component {
     try {
       // set new image name and filepath
       const newImageName = `${moment().format('DDMMYY_HHmmSSS')}.jpg`;
-      const newFilepath = `${dirPictures}/${newImageName}`;
+      const newFilepath = `${dirHome}/${newImageName}`;
       // move and save image to new filepath
-      const imageMoved = await moveAttachment(filePath, newFilepath);
-      console.log('image moved', imageMoved);
+      await moveAttachment(filePath, newFilepath);
+      this.refs.toast.show('Slika je sačuvana.', 500);
+      this.props.navigation.state.params.reloadState();
     } catch (error) {
-      console.log(error);
+      this.refs.toast.show('Greška prilikom čuvanja slike', 500);
     }
   };
 }
