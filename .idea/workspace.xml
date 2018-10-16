@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02fb7bdf-3f8a-4cf7-8273-1b8a178eadc4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.babelrc" beforeDir="false" afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/centarsrce/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/com/centarsrce/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/my_files/LocalStorage.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/my_files/LocalStorage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/my_files/MyFiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/my_files/MyFiles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/centarsrce-tvOS/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/centarsrce-tvOS/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/camera/Camera.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/camera/Camera.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/centarsrce.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/centarsrce.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/centarsrce/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/centarsrce/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -44,14 +37,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="babelrc" value="2" />
-          <entry key="js" value="39" />
+          <entry key="js" value="213" />
           <entry key="json" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="14" />
-          <entry key="JavaScript" value="39" />
+          <entry key="JavaScript" value="213" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -109,8 +102,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/camera/Camera.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+            <state relative-caret-position="447">
+              <caret line="42" column="36" lean-forward="true" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -143,7 +136,12 @@
       <find>applicationId</find>
       <find>babel-preset-react-native</find>
       <find>didMoun</find>
+      <find>this.props.n</find>
+      <find>this.props.navigation.navigate.</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/components</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -157,6 +155,7 @@
         <option value="$PROJECT_DIR$/ios/.gitignore" />
         <option value="$PROJECT_DIR$/components/my_files/MyFiles.js" />
         <option value="$PROJECT_DIR$/components/my_files/LocalStorage.js" />
+        <option value="$PROJECT_DIR$/components/camera/Camera.js" />
       </list>
     </option>
   </component>
@@ -213,12 +212,6 @@
             <path>
               <item name="centarsrce" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="camera" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="centarsrce" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="ios" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
@@ -229,7 +222,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/components" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RunDashboard">
@@ -255,12 +248,12 @@
       <option name="presentableId" value="Default" />
       <updated>1539696959758</updated>
       <workItem from="1539696962254" duration="1195000" />
-      <workItem from="1539698689020" duration="2034000" />
+      <workItem from="1539698689020" duration="3113000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2615000" />
+    <option name="totallyTimeSpent" value="3694000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -372,8 +365,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/camera/Camera.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+        <state relative-caret-position="447">
+          <caret line="42" column="36" lean-forward="true" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

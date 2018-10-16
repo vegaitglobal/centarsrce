@@ -41,6 +41,7 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		C075E1DD217630DA00661429 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C075E1DA2176238200661429 /* libRNFS.a */; };
 		C075E1DE217630E000661429 /* libRNDocumentPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C075E1D62176238200661429 /* libRNDocumentPicker.a */; };
+		C075E21F2176343900661429 /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C075E21E2176342600661429 /* libReactNativePermissions.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -345,6 +346,13 @@
 			remoteGlobalIDString = 6456441F1EB8DA9100672408;
 			remoteInfo = "RNFS-tvOS";
 		};
+		C075E21D2176342600661429 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1039B55E31B4E02A5001F22 /* ReactNativePermissions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9D23B34F1C767B80008B4819;
+			remoteInfo = ReactNativePermissions;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -369,6 +377,7 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		1D63E59C33BE40A6B82BCEBE /* libRNFS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFS.a; sourceTree = "<group>"; };
 		1DBB9F22EE3D41689D9624AB /* RNCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RNCamera.xcodeproj"; sourceTree = "<group>"; };
+		2141E3E4C3B54492B92E53EB /* libReactNativePermissions.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativePermissions.a; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* centarsrce-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "centarsrce-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* centarsrce-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "centarsrce-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -379,6 +388,7 @@
 		91D57029C5414698953FC18C /* RNDocumentPicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDocumentPicker.xcodeproj; path = "../node_modules/react-native-document-picker/ios/RNDocumentPicker.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		AF5D1AD4C1BF41498608B0CB /* libRNDocumentPicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDocumentPicker.a; sourceTree = "<group>"; };
+		C1039B55E31B4E02A5001F22 /* ReactNativePermissions.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativePermissions.xcodeproj; path = "../node_modules/react-native-permissions/ios/ReactNativePermissions.xcodeproj"; sourceTree = "<group>"; };
 		D0620E9A1DA84F9DACEA1A9D /* libRNCamera.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCamera.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -395,6 +405,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C075E21F2176343900661429 /* libReactNativePermissions.a in Frameworks */,
 				C075E1DE217630E000661429 /* libRNDocumentPicker.a in Frameworks */,
 				C075E1DD217630DA00661429 /* libRNFS.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
@@ -600,6 +611,7 @@
 				1DBB9F22EE3D41689D9624AB /* RNCamera.xcodeproj */,
 				70061D76A25E4BAF9E171B0D /* RNFS.xcodeproj */,
 				91D57029C5414698953FC18C /* RNDocumentPicker.xcodeproj */,
+				C1039B55E31B4E02A5001F22 /* ReactNativePermissions.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -654,6 +666,7 @@
 				D0620E9A1DA84F9DACEA1A9D /* libRNCamera.a */,
 				1D63E59C33BE40A6B82BCEBE /* libRNFS.a */,
 				AF5D1AD4C1BF41498608B0CB /* libRNDocumentPicker.a */,
+				2141E3E4C3B54492B92E53EB /* libReactNativePermissions.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -679,6 +692,14 @@
 			isa = PBXGroup;
 			children = (
 				C075E1D32176238200661429 /* libRNCamera.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C075E21A2176342600661429 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C075E21E2176342600661429 /* libReactNativePermissions.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -847,6 +868,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = C075E21A2176342600661429 /* Products */;
+					ProjectRef = C1039B55E31B4E02A5001F22 /* ReactNativePermissions.xcodeproj */;
 				},
 				{
 					ProductGroup = C075E1CF2176238200661429 /* Products */;
@@ -1159,6 +1184,13 @@
 			remoteRef = C075E1DB2176238200661429 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C075E21E2176342600661429 /* libReactNativePermissions.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReactNativePermissions.a;
+			remoteRef = C075E21D2176342600661429 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1304,12 +1336,14 @@
 					"$(SRCROOT)..\node_modules\neact-native-store-photos-albumiosReactNativeStorePhotosAlbum",
 					"$(SRCROOT)..\node_modules\neact-native-fs/**",
 					"$(SRCROOT)..\node_modules\neact-native-document-pickeriosRNDocumentPicker",
+					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 				);
 				INFOPLIST_FILE = centarsrceTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1336,12 +1370,14 @@
 					"$(SRCROOT)..\node_modules\neact-native-store-photos-albumiosReactNativeStorePhotosAlbum",
 					"$(SRCROOT)..\node_modules\neact-native-fs/**",
 					"$(SRCROOT)..\node_modules\neact-native-document-pickeriosRNDocumentPicker",
+					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 				);
 				INFOPLIST_FILE = centarsrceTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1369,6 +1405,7 @@
 					"$(SRCROOT)..\node_modules\neact-native-store-photos-albumiosReactNativeStorePhotosAlbum",
 					"$(SRCROOT)..\node_modules\neact-native-fs/**",
 					"$(SRCROOT)..\node_modules\neact-native-document-pickeriosRNDocumentPicker",
+					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 				);
 				INFOPLIST_FILE = centarsrce/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1397,6 +1434,7 @@
 					"$(SRCROOT)..\node_modules\neact-native-store-photos-albumiosReactNativeStorePhotosAlbum",
 					"$(SRCROOT)..\node_modules\neact-native-fs/**",
 					"$(SRCROOT)..\node_modules\neact-native-document-pickeriosRNDocumentPicker",
+					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 				);
 				INFOPLIST_FILE = centarsrce/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1432,11 +1470,13 @@
 					"$(SRCROOT)..\node_modules\neact-native-store-photos-albumiosReactNativeStorePhotosAlbum",
 					"$(SRCROOT)..\node_modules\neact-native-fs/**",
 					"$(SRCROOT)..\node_modules\neact-native-document-pickeriosRNDocumentPicker",
+					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 				);
 				INFOPLIST_FILE = "centarsrce-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1473,11 +1513,13 @@
 					"$(SRCROOT)..\node_modules\neact-native-store-photos-albumiosReactNativeStorePhotosAlbum",
 					"$(SRCROOT)..\node_modules\neact-native-fs/**",
 					"$(SRCROOT)..\node_modules\neact-native-document-pickeriosRNDocumentPicker",
+					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 				);
 				INFOPLIST_FILE = "centarsrce-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1513,11 +1555,13 @@
 					"$(SRCROOT)..\node_modules\neact-native-store-photos-albumiosReactNativeStorePhotosAlbum",
 					"$(SRCROOT)..\node_modules\neact-native-fs/**",
 					"$(SRCROOT)..\node_modules\neact-native-document-pickeriosRNDocumentPicker",
+					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 				);
 				INFOPLIST_FILE = "centarsrce-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1553,11 +1597,13 @@
 					"$(SRCROOT)..\node_modules\neact-native-store-photos-albumiosReactNativeStorePhotosAlbum",
 					"$(SRCROOT)..\node_modules\neact-native-fs/**",
 					"$(SRCROOT)..\node_modules\neact-native-document-pickeriosRNDocumentPicker",
+					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 				);
 				INFOPLIST_FILE = "centarsrce-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

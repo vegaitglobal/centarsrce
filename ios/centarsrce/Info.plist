@@ -15,7 +15,9 @@
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>NSAppleMusicUsageDescription</key>
-	<string>Media</string>
+	<string>CentarSrce would like to access your media</string>
+	<key>NSCameraUsageDescription</key>
+	<string>CentarSrce would like to use your camera</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
