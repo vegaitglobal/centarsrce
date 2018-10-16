@@ -17,7 +17,8 @@ import { normalize } from "../../helpers/sizes";
 import ArticleTitle from "../article_title/ArticleTitle";
 import Footer from "../footer/Footer";
 import styles from "./styles";
-import { read, moveAttachment, dirHome } from "./LocalStorage";
+import { read, moveAttachment, dirHome, mkDir } from "./LocalStorage";
+
 
 export default class MyFiles extends React.Component {
   static navigationOptions = {
@@ -39,11 +40,12 @@ export default class MyFiles extends React.Component {
   }
 
   componentDidMount() {
-    this.reloadState();
+      mkDir().then(() => {
+          this.reloadState();
+      }).catch(() => { this.refs.toast.show('Greška prilikom kreiranja direktorijuma spomenara. Proverite da li aplikacija poseduje dozvolu za skladištenje.', 3000) });
   }
 
   onLayout() {
-    debugger
     const { width, height } = Dimensions.get('window');
     this.setState({ width: width, height: height })
   }
@@ -54,7 +56,10 @@ export default class MyFiles extends React.Component {
       .then((files) => {
         this.mapFilesToState(files);
       })
-      .catch(() => { this.refs.toast.show('Greška prilikom učitavanja spomenara. Proverite da li aplikacija poseduje dozvolu za skladištenje.', 3000) });
+      .catch((err) => {
+        console.log(err)
+        this.refs.toast.show('Greška prilikom učitavanja spomenara. Proverite da li aplikacija poseduje dozvolu za skladištenje.', 3000)
+      });
   }
 
   mapFilesToState = (files) => {
@@ -129,10 +134,10 @@ export default class MyFiles extends React.Component {
           position="center"
           style={{ marginHorizontal: 10}}
         />
-        <ScrollView 
+        <ScrollView
           style={styles.scrollView}
           contentContainerStyle={styles.scrollViewContentContainer}
-        >  
+        >
           <ArticleTitle label="Sačuvaj sve bitne dokumente" />
           <Text style={styles.body}>
             Ovo je deo u kom možeš sačuvati sebi značajne fotografije, članke

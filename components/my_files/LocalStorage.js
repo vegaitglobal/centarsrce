@@ -27,8 +27,14 @@ export const read = (path) =>
     .then((result) => {
       return result;
     })
-    .catch(() => {});
+    .catch((err) => {
 
+        console.log(err)
+    });
+
+export const mkDir = () => {
+    return RNFS.mkdir(dirHome);
+}
 // export const requestReadStoragePermission = async () => {
 //   try {
 //     await PermissionsAndroid.request(
