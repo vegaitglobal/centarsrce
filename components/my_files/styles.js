@@ -1,7 +1,5 @@
-import { Dimensions } from 'react-native';
+import { Header } from "react-navigation";
 import { normalize } from "../../helpers/sizes";
-
-const { width } = Dimensions.get('window');
 
 export default {
   container: {
@@ -65,11 +63,6 @@ export default {
     height: 60,
     width: 215
   },
-  imageContainer: { 
-    width: normalize(width * 0.25),
-    height: normalize(width * 0.25),
-    margin: normalize(width * 0.015)
-  },
   image: {
     height: '100%',
     width: '100%',
@@ -106,5 +99,16 @@ export default {
     top: normalize(20),
     alignSelf: 'center',
     fontSize: normalize(20),
+  },
+  backgroundImage: {
+    marginTop: Header.HEIGHT,
+    width: '100%',
+    backgroundColor: 'transparent'
+  },
+  imagePreview: {
+    height: '80%',
+    width: '80%',
+    marginHorizontal: '10%',
+    marginTop: 10
   }
 };

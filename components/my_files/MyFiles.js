@@ -5,8 +5,15 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Modal,
+  ImageBackground,
+  Dimensions,
+  StatusBar,
 } from "react-native";
 import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
+import Toast from 'react-native-easy-toast';
+import { Header } from "react-navigation";
+import { normalize } from "../../helpers/sizes";
 import ArticleTitle from "../article_title/ArticleTitle";
 import Footer from "../footer/Footer";
 import styles from "./styles";
@@ -19,9 +26,14 @@ export default class MyFiles extends React.Component {
 
   constructor(props) {
     super(props);
+    const { width, height } = Dimensions.get('window');
     this.state = {
       seeingMore: false,
       files: [],
+      modalVisible: false,
+      modalImagePath: '',
+      width: width,
+      height: height,
     };
     this.toggleSeeingMore = this.toggleSeeingMore.bind(this);
   }
@@ -30,13 +42,19 @@ export default class MyFiles extends React.Component {
     this.reloadState();
   }
 
+  onLayout() {
+    debugger
+    const { width, height } = Dimensions.get('window');
+    this.setState({ width: width, height: height })
+  }
+
   reloadState = () => {
-    this.setState({ files: []})
+    this.setState({ files: [] })
     read(dirHome)
       .then((files) => {
         this.mapFilesToState(files);
       })
-      .catch(() => alert('Greška pilikom učitavanja spomenara.'));
+      .catch(() => { this.refs.toast.show('Greška prilikom učitavanja spomenara. Proverite da li aplikacija poseduje dozvolu za skladištenje.', 3000) });
   }
 
   mapFilesToState = (files) => {
@@ -57,7 +75,7 @@ export default class MyFiles extends React.Component {
 
   getExtension = (name) => {
     const splitName = name.split('.');
-    return  splitName[splitName.length - 1];
+    return splitName[splitName.length - 1];
   }
 
   isImage = (ext) => ext === 'jpg' || ext === 'png' || ext === 'gif' || ext === 'jpeg';
@@ -78,10 +96,10 @@ export default class MyFiles extends React.Component {
     const type = this.getType(res.fileName);
     if (type !== '') {
       moveAttachment(res.uri, destinationPath) // copying attachment
-        .then(() => {
+        .then((res) => {
           this.addFileToState(destinationPath, res.fileName, type);
         })
-        .catch((err) => console.log(err));
+        .catch(() => this.refs.toast.show('Greška prilikom dodavanja u spomenar. Proverite da li aplikacija poseduje dozvolu za skladištenje.', 3000));
     }
   }
 
@@ -96,10 +114,25 @@ export default class MyFiles extends React.Component {
     this.setState({ seeingMore: !this.state.seeingMore });
   }
 
+  setModalVisible(visible, path) {
+    this.setState({ modalVisible: visible, modalImagePath: path });
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContentContainer}>
+      <View
+        style={styles.container}
+        onLayout={this.onLayout.bind(this)}
+      >
+        <Toast
+          ref="toast"
+          position="center"
+          style={{ marginHorizontal: 10}}
+        />
+        <ScrollView 
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollViewContentContainer}
+        >  
           <ArticleTitle label="Sačuvaj sve bitne dokumente" />
           <Text style={styles.body}>
             Ovo je deo u kom možeš sačuvati sebi značajne fotografije, članke
@@ -108,21 +141,26 @@ export default class MyFiles extends React.Component {
           {this.state.files ? this.state.files.map((file, i) =>
             <TouchableOpacity
               key={i}
-              style={styles.imageContainer}
-            > 
+              style={{
+                width: this.state.width * 0.25,
+                height: this.state.width * 0.25,
+                margin: this.state.width * 0.015
+              }}
+              onPress={() => this.setModalVisible(true, file.path)}
+            >
               {file.type === 'image' ?
                 <Image
-                  source={{ uri:`file://${file.path}` }}
+                  source={{ uri: `file://${file.path}` }}
                   style={styles.image}
                 />
-                : 
+                :
                 <View style={this.getImageSource(file.type)}>
-                  <Text style={[styles.documentTitle, { color: file.type === 'txt' ? 'black' : 'white'}]}>{file.type}</Text>
-                  <Text numberOfLines={1} style={[styles.documentName, { color: file.type === 'txt' ? 'black' : 'white'}]} >{file.name}</Text>
+                  <Text style={[styles.documentTitle, { color: file.type === 'txt' ? 'black' : 'white' }]}>{file.type}</Text>
+                  <Text numberOfLines={1} style={[styles.documentName, { color: file.type === 'txt' ? 'black' : 'white' }]} >{file.name}</Text>
                 </View>
               }
             </TouchableOpacity>
-            )
+          )
             : null
           }
         </ScrollView>
@@ -144,15 +182,13 @@ export default class MyFiles extends React.Component {
                 this.toggleSeeingMore();
                 DocumentPicker.show({
                   filetype: [DocumentPickerUtil.allFiles()],
-                },(error, res) => {
+                }, (error, res) => {
                   if (res) {
                     this.addFile(res);
-                  } else {
-                    alert('Falied to add file.')
                   }
-                }
-              )}}
-              >
+                })
+              }}
+            >
               <Image
                 style={styles.attach}
                 source={require("../../images/attach.png")}
@@ -169,6 +205,31 @@ export default class MyFiles extends React.Component {
             source={require("../../images/plus.png")}
           />
         </TouchableOpacity>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={this.state.modalVisible}
+          onRequestClose={() => { }}
+          animationType='slide'
+        >
+          <TouchableOpacity
+            onPress={() => this.setModalVisible(false, '')}
+          >
+            <ImageBackground
+              style={[styles.backgroundImage, { height: this.state.height - Header.HEIGHT - 56 - StatusBar.currentHeight }]}
+              source={require("../../images/bluredWhite75.png")}
+            >
+              <View style={styles.imagePreview}>
+                <Image
+                  style={{ flex: 1, height: undefined, width: undefined }}
+                  source={{ uri: `file://${this.state.modalImagePath}` }}
+                  resizeMode="contain"
+                  blurRadius={40}
+                />
+              </View>
+            </ImageBackground>
+          </TouchableOpacity>
+        </Modal>
         <Footer />
       </View>
     );
