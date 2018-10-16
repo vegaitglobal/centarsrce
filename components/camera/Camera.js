@@ -5,6 +5,7 @@ import Toast from 'react-native-easy-toast';
 import {dirHome, moveAttachment} from '../my_files/LocalStorage';
 import {styles} from './styles';
 import Permissions from 'react-native-permissions';
+import OpenSettings from 'react-native-open-settings';
 
 const moment = require('moment');
 
@@ -33,6 +34,11 @@ export default class Camera extends React.Component {
     async componentDidMount() {
         const permission = await Permissions.request('camera');
         this.setState({cameraEnabled: permission === 'authorized'});
+        if(permission === 'authorized'){
+            this.setState({cameraEnabled: permission === 'authorized'});
+        } else {
+            OpenSettings.openSettings();
+        }
     }
 
     render() {
