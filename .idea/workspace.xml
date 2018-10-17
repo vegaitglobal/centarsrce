@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="02fb7bdf-3f8a-4cf7-8273-1b8a178eadc4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/components/camera/Camera.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/camera/Camera.js" afterDir="false" />
-    </list>
+    <list default="true" id="02fb7bdf-3f8a-4cf7-8273-1b8a178eadc4" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -45,7 +43,7 @@
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -244,12 +242,12 @@
       <option name="presentableId" value="Default" />
       <updated>1539696959758</updated>
       <workItem from="1539696962254" duration="1195000" />
-      <workItem from="1539698689020" duration="3350000" />
+      <workItem from="1539698689020" duration="3433000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3931000" />
+    <option name="totallyTimeSpent" value="4014000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
