@@ -1,5 +1,7 @@
 import { Platform, PermissionsAndroid } from 'react-native';
 const RNFS = require('react-native-fs');
+import Permissions from 'react-native-permissions';
+import OpenSettings from 'react-native-open-settings';
 
 export const dirHome = Platform.select({
   ios: `${RNFS.DocumentDirectoryPath}/Centar Srce`,
@@ -22,61 +24,53 @@ export const moveAttachment = async (filePath, newFilepath) => {
   });
 };
 
+export const mkDir = () => RNFS.mkdir(dirHome);
+
 export const read = (path) =>
   RNFS.readDir(path)
     .then((result) => {
       return result;
     })
-    .catch((err) => {
-
-        console.log(err)
+    .catch(() => {
     });
 
-export const mkDir = () => {
-    return RNFS.mkdir(dirHome);
+export const requestStoragePermission = async () => {
+  try {
+    await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+    )
+  } catch (err) {
+  }
 }
-// export const requestReadStoragePermission = async () => {
-//   try {
-//     await PermissionsAndroid.request(
-//       PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-//     )
-//   } catch (err) {
-//     console.warn(err)
-//   }
-// }
 
-// export const requestWriteStoragePermission = async () => {
-//   try {
-//     await PermissionsAndroid.request(
-//       PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-//     )
-//   } catch (err) {
-//     console.warn(err)
-//   }
-// }
+export const requestCameraPermission = async () => {
+  try {
+    await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+    )
+  } catch (err) {
+  }
+}
 
-// export const checkStoragePermission = async () => {
-//   try {
-//     debugger
-//     PermissionsAndroid.check(
-//       PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-//     ).then((granted) => {
-//       debugger
-//       if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
-//         await requestReadStoragePermission();
-//       }
-//     }).catch((err) => { console.log(err) })
 
-//     PermissionsAndroid.check(
-//       PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-//     ).then((granted) => {
-//       debugger
-//       if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
-//         await requestWriteStoragePermission();
-//       }
-//     }).then((err) => { console.log(err) })
-
-//   } catch (err) {
-//     console.warn(err);
-//   }
-// }
+export const askPermissions = async () => {
+  if (Platform.OS === 'ios') {
+    await Permissions.checkMultiple(['photo', 'mediaLibrary', 'camera'])
+      .then((response) => {
+        if (response.photo !== 'authorized' || response.mediaLibrary !== 'authorized' || response.camera !== 'authorized') {
+          OpenSettings.openSettings();
+        }
+      });
+  }
+  else if (Platform.OS === 'android') {
+    await Permissions.checkMultiple(['storage', 'camera'])
+      .then( async (response) => {
+        if (response.storage !== 'authorized') {
+          await requestStoragePermission();
+        }
+        if (response.camera !== 'authorized') {
+          await requestCameraPermission();
+        }
+      });
+  }
+}

@@ -7,9 +7,6 @@ import com.opensettings.OpenSettingsPackage;
 import com.rnfs.RNFSPackage;
 import com.reactnativedocumentpicker.ReactNativeDocumentPicker;
 import org.reactnative.camera.RNCameraPackage;
-import com.rnfs.RNFSPackage;
-import com.reactnativedocumentpicker.ReactNativeDocumentPicker;
-import org.reactnative.camera.RNCameraPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -33,10 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
             new OpenSettingsPackage(),
             new RNFSPackage(),
             new ReactNativeDocumentPicker(),
-            new RNCameraPackage(),
-            new RNCameraPackage(),
-            new ReactNativeDocumentPicker(),
-            new RNFSPackage()
+            new RNCameraPackage()
       );
     }
 

@@ -137,10 +137,7 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-open-settings')
-    compile project(':react-native-fs')
-    compile project(':react-native-document-picker')
-    compile project(':react-native-camera')
+    implementation project(':react-native-open-settings')
     implementation project(':react-native-fs')
     implementation project(':react-native-document-picker')
     implementation (project(':react-native-camera')) {

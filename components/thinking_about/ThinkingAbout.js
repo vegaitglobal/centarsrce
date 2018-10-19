@@ -4,6 +4,7 @@ import ArticleTitle from "../article_title/ArticleTitle";
 import Footer from "../footer/Footer";
 import NavigationButtonList from "../NavigationButtonList";
 import styles from "./styles";
+import { askPermissions } from "../my_files/LocalStorage";
 
 const ClickableText = ({ text, onPress }) => (
   <TouchableOpacity style={styles.clickableTextContainer} onPress={onPress}>
@@ -106,7 +107,7 @@ export default class ThinkingAbout extends React.Component {
               },
               {
                 label: "Moj spomenar",
-                onPress: () => navigation.navigate("MyFiles")
+                onPress: async () => { await askPermissions(); navigation.navigate('MyFiles');}
               },
               {
                 label: "Psihološki priručnik",

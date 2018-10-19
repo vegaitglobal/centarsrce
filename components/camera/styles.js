@@ -7,6 +7,11 @@ export const styles = StyleSheet.create({
       flexDirection: 'column',
       backgroundColor: 'black'
     },
+    cameraButton: {
+      flex: 0,
+      flexDirection: 'row',
+      justifyContent: 'center',
+    },
     preview: {
       flex: 1,
       justifyContent: 'flex-end',
