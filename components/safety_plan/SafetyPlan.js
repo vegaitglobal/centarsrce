@@ -8,6 +8,7 @@ import {
   TextInput,
   View
 } from "react-native";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import colors from "../../helpers/colors";
 import Footer from "../footer/Footer";
 import questions from "./questions";
@@ -49,12 +50,10 @@ export default class SafetyPlan extends React.Component {
   render() {
     return (
       <View style={styles.flexContainer}>
-        <KeyboardAvoidingView
-          style={styles.flexContainer}
-          behavior="position"
-          enabled
+        <KeyboardAwareScrollView
+          enableOnAndroid={true}
+          extraScrollHeight={50}
         >
-          <ScrollView>
             <View style={styles.container}>
               <Text style={styles.headerText}>
                 Popuni upitnik i kreiraj svoj sigurnosni plan
@@ -80,8 +79,7 @@ export default class SafetyPlan extends React.Component {
                 </View>
               ))}
             </View>
-          </ScrollView>
-        </KeyboardAvoidingView>
+        </KeyboardAwareScrollView>
         <Footer />
       </View>
     );
