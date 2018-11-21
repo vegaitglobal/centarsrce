@@ -1,22 +1,22 @@
 import React from 'react';
 import {
   AsyncStorage,
-  KeyboardAvoidingView,
   View,
-  Image,
   Text,
   TextInput,
   TouchableOpacity,
   ScrollView,
+  Dimensions,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Footer from '../footer/Footer';
-import NavigationButton from '../NavigationButton';
 import colors from '../../helpers/colors';
 import styles from './styles';
 import reusableStyles from '../reusableStyles';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 import moment from 'moment';
 
+const { height } = Dimensions.get('window');
 
 LocaleConfig.locales['rs'] = {
   monthNames: ['Januar','Februar','Mart','April','Maj','Jun','Jul','Avgust','Septembar','Oktobar','Novembar','Decembar'],
@@ -93,11 +93,10 @@ export default class Diary extends React.Component {
   render() {
     return (
       <View style={styles.flexContainer}>
-        <KeyboardAvoidingView
-          style={styles.flexContainer}
-          behavior="position"
-          enabled
-        >  
+        <KeyboardAwareScrollView
+          enableOnAndroid={true}
+          extraScrollHeight={height * 0.2}
+        >
           <ScrollView>
             
             <View style={reusableStyles.contentContainer}>
@@ -161,7 +160,7 @@ export default class Diary extends React.Component {
             </View>
 
           </ScrollView>
-        </KeyboardAvoidingView>
+        </KeyboardAwareScrollView>
         <Footer />
 
       </View>

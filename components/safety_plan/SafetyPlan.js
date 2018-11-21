@@ -2,11 +2,10 @@ import Immutable, { List } from "immutable";
 import React from "react";
 import {
   AsyncStorage,
-  KeyboardAvoidingView,
-  ScrollView,
   Text,
   TextInput,
-  View
+  View,
+  Dimensions
 } from "react-native";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import colors from "../../helpers/colors";
@@ -15,6 +14,7 @@ import questions from "./questions";
 import styles from "./styles";
 
 const InputLabel = ({ text }) => <Text style={styles.inputLabel}>{text}</Text>;
+const { height } = Dimensions.get('window');
 
 const Input = ({ value, onChangeText }) => (
   <View style={styles.inputContainer}>
@@ -52,7 +52,7 @@ export default class SafetyPlan extends React.Component {
       <View style={styles.flexContainer}>
         <KeyboardAwareScrollView
           enableOnAndroid={true}
-          extraScrollHeight={50}
+          extraScrollHeight={height * 0.1}
         >
             <View style={styles.container}>
               <Text style={styles.headerText}>
