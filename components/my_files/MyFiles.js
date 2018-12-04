@@ -103,16 +103,16 @@ export default class MyFiles extends React.Component {
 
   //possible types: image, pdf, doc, ppt, txt or empty string which means it is invalid format
   getType = fileName => {
-    const ext = this.getExtension (fileName);
-    return this.isImage (ext)
+    const ext = this.getExtension(fileName).toLowerCase();
+    return this.isImage(ext)
       ? 'image'
-      : this.isPdf (ext)
+      : this.isPdf(ext)
           ? 'pdf'
-          : this.isWord (ext)
+          : this.isWord(ext)
               ? 'doc'
-              : this.isPowerPoint (ext)
+              : this.isPowerPoint(ext)
                   ? 'ppt'
-                  : this.isText (ext) ? 'txt' : '';
+                  : this.isText(ext) ? 'txt' : '';
   };
 
   addFile = res => {
