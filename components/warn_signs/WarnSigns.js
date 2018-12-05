@@ -23,7 +23,7 @@ export default class WarnSigns extends React.Component {
           <Text style={styles.bullet}>
             ⬤{"  "}
             <Text style={styles.bulletText}>
-              promene raspoloženja i ponašanje - tužni su, povučeni, osetljivi,
+              promene raspoloženja i ponašanja - tužni su, povučeni, osetljivi,
               nervozni, umorni, neodlučni, bezvoljni, nekad uznemireni i
               hiperaktivni, ne mogu da se skoncentrišu na redovne obaveze,
               nezainteresovani su za svoj izgled

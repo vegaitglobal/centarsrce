@@ -100,14 +100,14 @@ export default class Diary extends React.Component {
           <ScrollView>
             
             <View style={reusableStyles.contentContainer}>
-              <Text style={reusableStyles.title}> Zabelezi svoja osećanja i dogadjaje </Text>
+              <Text style={reusableStyles.title}> Zabeleži svoja osećanja i događaje </Text>
               <Text style={reusableStyles.body}>
-                Ovo je deo u kom mozete beleziti sve sto vam se 
-                desilo u toku dana, kako ste se osecali danas, o
-                cemu ste razmisljali i sta vam je pomoglo da
-                pregurate ovaj dan. Na ovaj nacin mozete imati
-                realniji pogled svog stanja i mozete identifikovati
-                odredjena ponavljanja.
+                Ovo je deo u kom možeš beležiti sve što ti se 
+                desilo u toku dana, kako si se osećao/la danas, o 
+                čemu si razmišljao/la i šta ti je pomoglo da 
+                preguraš ovaj dan. Na ovaj način možeš imati 
+                realniji pogled na svoje stanje i možeš identifikovati 
+                određena ponavljanja.
               </Text>
             </View>
 

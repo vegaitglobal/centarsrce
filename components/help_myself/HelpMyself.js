@@ -20,7 +20,7 @@ export default class HelpMyself extends React.Component {
             patnja nikada neće nestati i da postaje sve teže. Želiš da se ovo
             što pre završi, da doživiš olakšanje, da ovu teskobu ne osećaš više.
             To ne znači da si slaba ili luda osoba. Ponekad patnja postane
-            toliko intenzivna da ona prevaziđe našu snagu da se borimo sa njom.
+            toliko intenzivna da ona prevaziđe našu snagu da se borimo sa njom. {" "}
             <Text style={{ fontWeight: "bold" }}>
               Često misli o samoubistvu ni ne znače da želiš da se ubiješ, već
               da ti je potreban odmor.
@@ -105,7 +105,7 @@ export default class HelpMyself extends React.Component {
               <Text style={{ fontWeight: "bold" }}>
                 Pregledaj svoj sigurnosni plan.
               </Text>{" "}
-              Bitno se da se u ovom trenutku osećaš sigurno. Ukoliko nemaš još
+              Bitno je da se u ovom trenutku osećaš sigurno. Ukoliko nemaš još
               kreiran sigurnosni plan, važno je da ga sada ispuniš. Takođe,
               pregledaj ostale delove ove aplikacije koje ti mogu biti korisne.
               {"\n\n"}
