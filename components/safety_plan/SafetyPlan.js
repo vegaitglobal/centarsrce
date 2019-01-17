@@ -2,18 +2,19 @@ import Immutable, { List } from "immutable";
 import React from "react";
 import {
   AsyncStorage,
-  KeyboardAvoidingView,
-  ScrollView,
   Text,
   TextInput,
-  View
+  View,
+  Dimensions
 } from "react-native";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import colors from "../../helpers/colors";
 import Footer from "../footer/Footer";
 import questions from "./questions";
 import styles from "./styles";
 
 const InputLabel = ({ text }) => <Text style={styles.inputLabel}>{text}</Text>;
+const { height } = Dimensions.get('window');
 
 const Input = ({ value, onChangeText }) => (
   <View style={styles.inputContainer}>
@@ -49,12 +50,10 @@ export default class SafetyPlan extends React.Component {
   render() {
     return (
       <View style={styles.flexContainer}>
-        <KeyboardAvoidingView
-          style={styles.flexContainer}
-          behavior="position"
-          enabled
+        <KeyboardAwareScrollView
+          enableOnAndroid={true}
+          extraScrollHeight={height * 0.1}
         >
-          <ScrollView>
             <View style={styles.container}>
               <Text style={styles.headerText}>
                 Popuni upitnik i kreiraj svoj sigurnosni plan
@@ -80,8 +79,7 @@ export default class SafetyPlan extends React.Component {
                 </View>
               ))}
             </View>
-          </ScrollView>
-        </KeyboardAvoidingView>
+        </KeyboardAwareScrollView>
         <Footer />
       </View>
     );

@@ -21,12 +21,12 @@ export default class SupportManual extends React.Component {
             {"\n"}
             Potrebno je{" "}
             <Text style={{ fontWeight: "bold" }}>
-              da joj pokažeš da nije sama, da je razumeš i prihvataš
+              da joj pokažeš da nije sama, da je razumeš i prihvataš {" "}
             </Text>
             takvu kakva jeste. Osoba koja razmišlja o samoubistvu pati i
             potrebna joj je iskrena podrška i razumevanje. Pokušaj da se staviš
             u njenu poziciju i to će ti pomoći da bolje razumeš kroz šta
-            prolazi, a i pomoći će tebi da reaguješ na prirodan način. Bitno je
+            prolazi, a i pomoći će tebi da reaguješ na prirodan način. Bitno je {" "}
             <Text style={{ fontWeight: "bold" }}>
               da ne morališeš, ne sažaljevaš i ne daješ brze savete.
             </Text>{" "}

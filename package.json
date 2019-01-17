@@ -3,30 +3,42 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-native-scripts": "1.14.0",
-    "jest-expo": "~27.0.0",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-external-helpers": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-stage-0": "^7.0.0",
+    "@babel/runtime": "^7.1.2",
+    "metro-react-native-babel-preset": "0.48.1",
     "react-test-renderer": "16.3.1"
   },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
     "test": "jest"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "react-native"
   },
   "dependencies": {
-    "expo": "^27.0.1",
+    "@babel/preset-stage-0": "^7.0.0",
+    "@babel/runtime": "^7.1.2",
+    "babel-plugin-transform-react-jsx-source": "^6.22.0",
+    "babel-preset-react-native": "2.1.0",
     "file-system": "^2.2.2",
     "immutable": "^3.8.2",
     "moment": "^2.22.2",
     "react": "16.3.1",
-    "react-native": "~0.55.2",
+    "react-native": "^0.55.4",
     "react-native-calendars": "^1.20.0",
+    "react-native-camera": "git+https://git@github.com/react-native-community/react-native-camera",
     "react-native-communications": "^2.2.1",
+    "react-native-document-picker": "^2.1.0",
+    "react-native-easy-toast": "^1.1.0",
+    "react-native-fs": "^2.11.18",
+    "react-native-keyboard-aware-scroll-view": "^0.7.4",
+    "react-native-open-settings": "^1.0.1",
+    "react-native-permissions": "^1.1.1",
     "react-navigation": "^2.13.0"
   }
 }

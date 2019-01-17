@@ -16,7 +16,7 @@ export default class Support extends React.Component {
           <ArticleTitle label="Podrška" />
           <Text style={styles.body}>
             Centar „Srce“ čine volonteri koji svakodnevno putem telefona, mejla
-            i četa razgovaraju sa ljudima koji razmišljaju o samoubistvu ili
+            i chata razgovaraju sa ljudima koji razmišljaju o samoubistvu ili
             prolaze kroz neku drugu vrstu emotivne krize. Nastoje da ih
             razumeju, pruže im podršku i prostor u kom mogu izraziti sve što
             osećaju. Svi naši razgovori su anonimni i poverljivi.

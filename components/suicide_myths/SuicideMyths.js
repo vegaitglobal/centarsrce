@@ -15,7 +15,7 @@ export default class SuicideMyths extends React.Component {
         <ScrollView style={styles.scrollView}>
           <ArticleTitle label="Mitovi o samoubistvu" />
           <Text style={styles.body}>
-            Samoubistvo je u našem društvu tabu tema koje okružuju različite
+            Samoubistvo je u našem društvu tabu tema koju okružuju različite
             predrasude. Postoji potreba za promenom stava javnosti i povećanje
             nivoa svesti o samom problemu i o tome da on može da se prevenira.
             Neke od najčešćih su:

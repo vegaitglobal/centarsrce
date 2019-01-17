@@ -40,10 +40,10 @@ export default class ThinkingAbout extends React.Component {
               razmišlja o samoubistvu može da izazove različite i bolne emocije
               – poput tuge, besa, krivice, nerazumevanja, straha… Potpuno je
               normalno da osetiš neke ili sve od tih emocija. Da bi očuvao/la
-              svoje zdravlje i bio podrška nekom ko pati pokušaj da u svojoj
+              svoje zdravlje i bio/la podrška nekom ko pati pokušaj da u svojoj
               okolini pronađeš osobe koje ti mogu pružiti podršku, sa kojima se
-              možeš posavetovati ili razgovarati i/ili stručnu pomoć psihologa
-              ili psihoterapeuta.
+              možeš posavetovati i razgovarati, ili možeš potražiti stručnu 
+              pomoć psihologa ili psihoterapeuta.
             </Text>
           </View>
           <NavigationButtonList

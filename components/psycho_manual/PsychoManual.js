@@ -44,7 +44,7 @@ export default class PsychoManual extends React.Component {
             ➋{"  "}
             <Text style={styles.bulletText}>
               <Text style={{ fontWeight: "bold" }}>
-                Razgovaraj o svojim osećajima!
+                Razgovaraj o svojim osećanjima!
               </Text>{" "}
               Značajno je da povremeno posmatramo kako se osećamo i vodimo brigu
               o istom. Razgovor o tome kako se osećaš nije znak slabosti, niti
@@ -57,7 +57,7 @@ export default class PsychoManual extends React.Component {
             ➌{"  "}
             <Text style={styles.bulletText}>
               Napravi pauzu! Kada se osećamo preplavljeno,{" "}
-              <Text style={{ fontWeight: "bold" }}>u redu je odmoriti</Text>
+              <Text style={{ fontWeight: "bold" }}>u redu je odmoriti</Text>{" "}
               tako što ćemo raditi nešto što nam prija, ili čak ne raditi mnogo
               toga. Udahni, oslušni svoje telo. Ukoliko se osećaš umorno, daj
               sebi vremena da nadoknadiš izgubljeno.

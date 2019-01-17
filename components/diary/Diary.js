@@ -1,22 +1,22 @@
 import React from 'react';
 import {
   AsyncStorage,
-  KeyboardAvoidingView,
   View,
-  Image,
   Text,
   TextInput,
   TouchableOpacity,
   ScrollView,
+  Dimensions,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Footer from '../footer/Footer';
-import NavigationButton from '../NavigationButton';
 import colors from '../../helpers/colors';
 import styles from './styles';
 import reusableStyles from '../reusableStyles';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 import moment from 'moment';
 
+const { height } = Dimensions.get('window');
 
 LocaleConfig.locales['rs'] = {
   monthNames: ['Januar','Februar','Mart','April','Maj','Jun','Jul','Avgust','Septembar','Oktobar','Novembar','Decembar'],
@@ -93,22 +93,21 @@ export default class Diary extends React.Component {
   render() {
     return (
       <View style={styles.flexContainer}>
-        <KeyboardAvoidingView
-          style={styles.flexContainer}
-          behavior="position"
-          enabled
-        >  
+        <KeyboardAwareScrollView
+          enableOnAndroid={true}
+          extraScrollHeight={height * 0.2}
+        >
           <ScrollView>
             
             <View style={reusableStyles.contentContainer}>
-              <Text style={reusableStyles.title}> Zabelezi svoja osećanja i dogadjaje </Text>
+              <Text style={reusableStyles.title}> Zabeleži svoja osećanja i događaje </Text>
               <Text style={reusableStyles.body}>
-                Ovo je deo u kom mozete beleziti sve sto vam se 
-                desilo u toku dana, kako ste se osecali danas, o
-                cemu ste razmisljali i sta vam je pomoglo da
-                pregurate ovaj dan. Na ovaj nacin mozete imati
-                realniji pogled svog stanja i mozete identifikovati
-                odredjena ponavljanja.
+                Ovo je deo u kom možeš beležiti sve što ti se 
+                desilo u toku dana, kako si se osećao/la danas, o 
+                čemu si razmišljao/la i šta ti je pomoglo da 
+                preguraš ovaj dan. Na ovaj način možeš imati 
+                realniji pogled na svoje stanje i možeš identifikovati 
+                određena ponavljanja.
               </Text>
             </View>
 
@@ -161,7 +160,7 @@ export default class Diary extends React.Component {
             </View>
 
           </ScrollView>
-        </KeyboardAvoidingView>
+        </KeyboardAwareScrollView>
         <Footer />
 
       </View>

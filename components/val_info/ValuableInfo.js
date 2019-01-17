@@ -21,7 +21,7 @@ export default class ValInfo extends React.Component {
             <Text style={{ fontWeight: "bold" }}>
               1 osoba na svakih 40 sekundi.
             </Text>{" "}
-            U odnosu na jednu osobu koja izvrši samoubistvo,
+            U odnosu na jednu osobu koja izvrši samoubistvo,  {" "}
             <Text style={{ fontWeight: "bold" }}>20 osoba pokuša</Text> da
             oduzme sebi život. Dok je stopa samoubistva u svetu 18 na 100.000, u
             Srbiji je zabeležen trend pada u odnosu na ranije godine -13 na
