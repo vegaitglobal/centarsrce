@@ -1,7 +1,6 @@
 import { Platform, PermissionsAndroid } from 'react-native';
 const RNFS = require('react-native-fs');
 import Permissions from 'react-native-permissions';
-import OpenSettings from 'react-native-open-settings';
 
 export const dirHome = Platform.select({
   ios: `${RNFS.DocumentDirectoryPath}/Centar Srce`,
@@ -55,10 +54,13 @@ export const requestCameraPermission = async () => {
 
 export const askPermissions = async () => {
   if (Platform.OS === 'ios') {
-    await Permissions.checkMultiple(['photo', 'mediaLibrary', 'camera'])
+    await Permissions.checkMultiple(['photo', 'camera'])
       .then((response) => {
-        if (response.photo !== 'authorized' || response.mediaLibrary !== 'authorized' || response.camera !== 'authorized') {
-          OpenSettings.openSettings();
+        if (response.photo !== 'authorized') {
+          Permissions.request('photo')
+        }
+        if (response.camera !== 'authorized') {
+          Permissions.request('camera');
         }
       });
   }

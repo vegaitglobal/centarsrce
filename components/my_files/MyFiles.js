@@ -10,6 +10,7 @@ import {
   Dimensions,
   StatusBar,
   Linking,
+  Platform
 } from 'react-native';
 import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
 import Toast from 'react-native-easy-toast';
@@ -188,7 +189,7 @@ export default class MyFiles extends React.Component {
                   {file.type === 'image'
                     ? <Image
                         source={{uri: `file://${file.path}`}}
-                        style={styles.image}
+                        style={[styles.image, { resizeMode: 'contain' }]}
                       />
                     : <View style={this.getImageSource(file.type)}>
                         <Text
@@ -268,10 +269,12 @@ export default class MyFiles extends React.Component {
               style={[
                 styles.backgroundImage,
                 {
-                  height: this.state.height -
+                  height: Platform.OS === 'android' ? this.state.height -
                     Header.HEIGHT -
                     56 -
-                    StatusBar.currentHeight,
+                    StatusBar.currentHeight 
+                    : this.state.height -
+                    Header.HEIGHT - 56
                 },
               ]}
               source={require('../../images/bluredWhite75.png')}
@@ -281,7 +284,6 @@ export default class MyFiles extends React.Component {
                   style={{flex: 1, height: undefined, width: undefined}}
                   source={{uri: `file://${this.state.modalImagePath}`}}
                   resizeMode="contain"
-                  blurRadius={40}
                 />
               </View>
             </ImageBackground>
