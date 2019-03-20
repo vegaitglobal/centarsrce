@@ -4,7 +4,7 @@ import Permissions from 'react-native-permissions';
 
 export const dirHome = Platform.select({
   ios: `${RNFS.DocumentDirectoryPath}/Centar Srce`,
-  android: `${RNFS.ExternalStorageDirectoryPath}/Centar Srce`
+  android: `${RNFS.DocumentDirectoryPath }/Centar Srce`
 });
 
 export const copyFile = (filePath, destPath) =>
@@ -23,7 +23,9 @@ export const moveAttachment = async (filePath, newFilepath) => {
   });
 };
 
-export const mkDir = () => RNFS.mkdir(dirHome);
+export const mkDir = () => {
+  return RNFS.mkdir(dirHome);
+}
 
 export const read = (path) =>
   RNFS.readDir(path)
