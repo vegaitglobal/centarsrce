@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -43,6 +42,7 @@
 		C075E21F2176343900661429 /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C075E21E2176342600661429 /* libReactNativePermissions.a */; };
 		C075E2622176377F00661429 /* libReact Native Open Settings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C075E2612176377700661429 /* libReact Native Open Settings.a */; };
 		C075E2632176378600661429 /* libRNCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C075E1D32176238200661429 /* libRNCamera.a */; };
+		8A5A29D74F6A4DBB8CA632D0 /* libRNFileViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B032D3CC92164403BDC75105 /* libRNFileViewer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -400,6 +400,8 @@
 		AF6E777CB9554B5FA8733798 /* libReact Native Open Settings.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libReact Native Open Settings.a"; sourceTree = "<group>"; };
 		C1039B55E31B4E02A5001F22 /* ReactNativePermissions.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativePermissions.xcodeproj; path = "../node_modules/react-native-permissions/ios/ReactNativePermissions.xcodeproj"; sourceTree = "<group>"; };
 		D0620E9A1DA84F9DACEA1A9D /* libRNCamera.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCamera.a; sourceTree = "<group>"; };
+		F367FA28D3D54BCEB40DBE79 /* RNFileViewer.xcodeproj */ = {isa = PBXFileReference; name = "RNFileViewer.xcodeproj"; path = "../node_modules/react-native-file-viewer/ios/RNFileViewer.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		B032D3CC92164403BDC75105 /* libRNFileViewer.a */ = {isa = PBXFileReference; name = "libRNFileViewer.a"; path = "libRNFileViewer.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,6 +435,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				8A5A29D74F6A4DBB8CA632D0 /* libRNFileViewer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +627,7 @@
 				91D57029C5414698953FC18C /* RNDocumentPicker.xcodeproj */,
 				C1039B55E31B4E02A5001F22 /* ReactNativePermissions.xcodeproj */,
 				18E69B147D364A3BBF195EA7 /* React Native Open Settings.xcodeproj */,
+				F367FA28D3D54BCEB40DBE79 /* RNFileViewer.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1370,12 +1374,14 @@
 					"$(SRCROOT)..\node_modules\neact-native-document-pickeriosRNDocumentPicker",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-open-settings",
+					"$(SRCROOT)\..\node_modules\react-native-file-viewer\ios",
 				);
 				INFOPLIST_FILE = centarsrceTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1406,12 +1412,14 @@
 					"$(SRCROOT)..\node_modules\neact-native-document-pickeriosRNDocumentPicker",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-open-settings",
+					"$(SRCROOT)\..\node_modules\react-native-file-viewer\ios",
 				);
 				INFOPLIST_FILE = centarsrceTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1443,6 +1451,7 @@
 					"$(SRCROOT)..\node_modules\neact-native-document-pickeriosRNDocumentPicker",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-open-settings",
+					"$(SRCROOT)\..\node_modules\react-native-file-viewer\ios",
 				);
 				INFOPLIST_FILE = centarsrce/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1473,6 +1482,7 @@
 					"$(SRCROOT)..\node_modules\neact-native-document-pickeriosRNDocumentPicker",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-open-settings",
+					"$(SRCROOT)\..\node_modules\react-native-file-viewer\ios",
 				);
 				INFOPLIST_FILE = centarsrce/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1510,11 +1520,13 @@
 					"$(SRCROOT)..\node_modules\neact-native-document-pickeriosRNDocumentPicker",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-open-settings",
+					"$(SRCROOT)\..\node_modules\react-native-file-viewer\ios",
 				);
 				INFOPLIST_FILE = "centarsrce-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1555,11 +1567,13 @@
 					"$(SRCROOT)..\node_modules\neact-native-document-pickeriosRNDocumentPicker",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-open-settings",
+					"$(SRCROOT)\..\node_modules\react-native-file-viewer\ios",
 				);
 				INFOPLIST_FILE = "centarsrce-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1599,11 +1613,13 @@
 					"$(SRCROOT)..\node_modules\neact-native-document-pickeriosRNDocumentPicker",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-open-settings",
+					"$(SRCROOT)\..\node_modules\react-native-file-viewer\ios",
 				);
 				INFOPLIST_FILE = "centarsrce-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1643,11 +1659,13 @@
 					"$(SRCROOT)..\node_modules\neact-native-document-pickeriosRNDocumentPicker",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-open-settings",
+					"$(SRCROOT)\..\node_modules\react-native-file-viewer\ios",
 				);
 				INFOPLIST_FILE = "centarsrce-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

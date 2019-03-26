@@ -9,8 +9,7 @@ import {
   ImageBackground,
   Dimensions,
   StatusBar,
-  Linking,
-  Platform
+  Platform,
 } from 'react-native';
 import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
 import Toast from 'react-native-easy-toast';
@@ -19,6 +18,7 @@ import ArticleTitle from '../article_title/ArticleTitle';
 import Footer from '../footer/Footer';
 import styles from './styles';
 import { read, moveAttachment, dirHome, mkDir, askPermissions } from './LocalStorage';
+import FileViewer from 'react-native-file-viewer';
 
 export default class MyFiles extends React.Component {
   static navigationOptions = {
@@ -181,9 +181,9 @@ export default class MyFiles extends React.Component {
                   onPress={() =>
                     file.type === 'image'
                       ? this.setModalVisible (true, file.path)
-                      : Linking.openURL(`file://${file.path}`).catch(err => {
-                          debugger;
-                          console.log (err);
+                      : FileViewer.open(file.path)
+                        .catch(error => {
+                          console.log (error);
                         })}
                 >
                   {file.type === 'image'

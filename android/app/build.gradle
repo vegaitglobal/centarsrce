@@ -150,7 +150,7 @@ android {
 }
 
 dependencies {
-    implementation project(':react-native-open-settings')
+    implementation project(':react-native-file-viewer')
     implementation project(':react-native-open-settings')
     implementation project(':react-native-fs')
     implementation project(':react-native-document-picker')
