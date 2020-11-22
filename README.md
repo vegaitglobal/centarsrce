@@ -14,4 +14,4 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 2. `npm run android`
 
 #### iOS
-1. `npm ios`
+1. `npm run ios`
