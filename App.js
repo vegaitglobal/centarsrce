@@ -7,6 +7,7 @@ import HelpMyself from "./components/help_myself/HelpMyself";
 import HowToHelp from "./components/how_to_help/HowToHelp";
 import MainMenu from "./components/main_menu/MainMenuComponent";
 import MyFiles from "./components/my_files/MyFiles";
+import Pandemic from "./components/pandemic/Pandemic";
 import Placeholder from "./components/Placeholder";
 import PsychoManual from "./components/psycho_manual/PsychoManual";
 import SafetyPlan from "./components/safety_plan/SafetyPlan";
@@ -30,6 +31,7 @@ const RootStack = createStackNavigator(
     Placeholder: Placeholder,
     Diary: Diary,
     HowToHelp: HowToHelp,
+    Pandemic: Pandemic,
     About: About,
     MyFiles: MyFiles,
     HelpMyself: HelpMyself,

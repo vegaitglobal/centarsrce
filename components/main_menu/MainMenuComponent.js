@@ -40,6 +40,10 @@ export default class MainMenu extends React.Component {
                   onPress: () => navigation.navigate("ValInfo")
                 },
                 {
+                  label: "Mentalno zdravlje u vreme pandemije COVID-19",
+                  onPress: () => navigation.navigate("Pandemic"),
+                },
+                {
                   label: "O udruženju i o aplikaciji",
                   onPress: () => navigation.navigate("About")
                 }
