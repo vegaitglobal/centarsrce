@@ -24,7 +24,7 @@ export default class About extends React.Component {
             <Text style={styles.body}>
               Centar „Srce“ je neprofitna, volonterska i nevladina organizacija,
               osnovano je 1991. godine i deo je međunarodne mreže SOS centara za
-              prevenciju samoubistva Befrienders Worldwide. Svakog dana, od 17
+              prevenciju samoubistva Befrienders Worldwide. Svakog dana, od 14
               do 23 časa, volonteri Centra “Srce” razgovaraju sa ljudima koji su
               usamljeni, uznemireni, povređeni, tužni, očajni, nesigurni i -
               slušaju ih.

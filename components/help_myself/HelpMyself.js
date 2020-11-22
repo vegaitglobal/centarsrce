@@ -84,7 +84,7 @@ export default class HelpMyself extends React.Component {
               tom trenutku neće biti podržavajući. Ukoliko želiš da razgovaraš
               sa nekim a da to bude anonimno i poverljivo, možeš nazvati
               volontere Centra „Srce“ (Centar za prevenciju samoubistva) koji su
-              tu za tebe svakim danom od 17 do 23h. Ili ih možeš kontaktirati
+              tu za tebe svakim danom od 14 do 23h. Ili ih možeš kontaktirati
               putem e-maila i chata. Kontakte možeš pronaći na dnu svake
               stranice.
             </Text>
