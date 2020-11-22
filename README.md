@@ -7,11 +7,11 @@ The idea is to create a free suicide prevention app. The app is intended to help
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 ## Quick start
-`yarn install or npm install`
+`npm install`
 
 ### Android
 1. In android/local.properties file add path to your local android sdk folder. (usually in Users/{username}AppData/Local/Android/Sdk) on Windows.
-2. `yarn android or npm run android`
+2. `npm run android`
 
 #### iOS
-1. `yarn ios or npm ios`
+1. `npm ios`
