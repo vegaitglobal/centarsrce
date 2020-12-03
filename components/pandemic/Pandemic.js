@@ -7,10 +7,6 @@ import Footer from "../footer/Footer";
 import styles from "./styles";
 
 export default class Pandemic extends React.Component {
-  static navigationOptions = {
-    title: "Mentalno zdravlje u vreme pandemije COVID-19",
-  };
-
   render() {
     return (
       <View style={styles.container}>

@@ -1,29 +1,152 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
+###################
+# compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.pdb
+*.dll.config
+*.cache
+*.suo
+# Include dlls if they’re in the NuGet packages directory
+!/packages/*/lib/*.dll
+!/packages/*/lib/*/*.dll
+# Include dlls if they're in the CommonReferences directory
+!*CommonReferences/*.dll
+####################
+# VS Upgrade stuff #
+####################
+UpgradeLog.XML
+_UpgradeReport_Files/
+###############
+# Directories #
+###############
+bin/
+obj/
+TestResults/
+###################
+# Web publish log #
+###################
+*.Publish.xml
+#############
+# Resharper #
+#############
+/_ReSharper.*
+*.ReSharper.*
+############
+# Packages #
+############
+# it’s better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+######################
+# Logs and databases #
+######################
+*.log
+*.sqlite
+# OS generated files #
+######################
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+[Bb]in
+[Oo]bj
+[Tt]est[Rr]esults
+*.suo
+*.user
+*.[Cc]ache
+*[Rr]esharper*
+packages
+NuGet.exe
+_[Ss]cripts
+*.exe
+*.dll
+*.nupkg
+*.ncrunchsolution
+*.dot[Cc]over
 
-# expo
-.expo/
 
-# dependencies
-/node_modules
+# OSX
+.DS_Store
 
-# misc
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# Xcode
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Android/IJ
+.idea/workspace.xml
+.idea/tasks.xml
+build/
+.idea
+.gradle
+/local.properties
+*.iml
+.idea/compiler.xml
+.idea/dictionaries/*
+.idea/copyright/profiles_settings.xml
+.idea/misc.xml
+.idea/dbnavigator.xml
+android/local.properties
 
-/android/app/build
-/android/build
-/android/.gradle
-/android/.idea/libraries
-/android/.idea/gradle.xml
-/android/.idea/modules.xml
-/android/.idea/misc.xml
-/android/.idea/vcs.xml
-/android/.idea/runConfigurations.xml
-/android/.idea/workspace.xml
-/android/.idea/caches/
+# node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# BUCK
+buck-out/
+\.buckd/
+android/keystores/debug.keystore
+android/app/my-release-key.keystore
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Gitignore.md
+
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+
+artifacts
+
+# VS Code
+.vs/
+jsconfig.json
+.vscode/
+
+# Yarn
+yarn-error.log
+.idea/codeStyles/
+
+# .envs
+.env
+.env.dev
+.env.staging
+.env.uat

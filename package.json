@@ -1,47 +1,49 @@
 {
   "name": "centarsrce",
-  "version": "0.1.1",
+  "version": "1.1.0",
   "private": true,
-  "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/plugin-external-helpers": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/preset-stage-0": "^7.0.0",
-    "@babel/runtime": "^7.1.2",
-    "metro-react-native-babel-preset": "0.48.1",
-    "patch-package": "6.2.2",
-    "react-test-renderer": "16.3.1"
-  },
   "scripts": {
-    "postinstall": "patch-package",
-    "start": "react-native start",
     "android": "react-native run-android",
+    "android:build": "cd android && gradlew assembleRelease && cd ..",
     "ios": "react-native run-ios",
-    "test": "jest"
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/native": "^5.8.10",
+    "@react-navigation/stack": "^5.12.8",
+    "immutable": "^4.0.0-rc.12",
+    "moment": "^2.29.1",
+    "react": "16.13.1",
+    "react-native": "0.63.4",
+    "react-native-calendars": "^1.614.0",
+    "react-native-camera": "^3.40.0",
+    "react-native-camera-hooks": "^0.3.1",
+    "react-native-communications": "^2.2.1",
+    "react-native-document-picker": "^4.1.0",
+    "react-native-easy-toast": "^1.2.0",
+    "react-native-file-viewer": "^2.1.4",
+    "react-native-fs": "^2.16.6",
+    "react-native-gesture-handler": "^1.9.0",
+    "react-native-keyboard-aware-scroll-view": "^0.9.3",
+    "react-native-permissions": "^3.0.0",
+    "react-native-reanimated": "^1.13.2",
+    "react-native-safe-area-context": "^3.1.9",
+    "react-native-screens": "^2.15.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.14.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.64.0",
+    "react-test-renderer": "16.13.1"
   },
   "jest": {
     "preset": "react-native"
-  },
-  "dependencies": {
-    "@babel/preset-stage-0": "^7.0.0",
-    "@babel/runtime": "^7.1.2",
-    "babel-plugin-transform-react-jsx-source": "^6.22.0",
-    "babel-preset-react-native": "2.1.0",
-    "file-system": "^2.2.2",
-    "immutable": "^3.8.2",
-    "moment": "^2.22.2",
-    "react": "16.3.1",
-    "react-native": "^0.55.4",
-    "react-native-calendars": "^1.20.0",
-    "react-native-camera": "^2.11.1",
-    "react-native-communications": "^2.2.1",
-    "react-native-document-picker": "^2.1.0",
-    "react-native-easy-toast": "^1.1.0",
-    "react-native-file-viewer": "^1.0.14",
-    "react-native-fs": "^2.11.18",
-    "react-native-keyboard-aware-scroll-view": "^0.7.4",
-    "react-native-open-settings": "^1.0.1",
-    "react-native-permissions": "^1.1.1",
-    "react-navigation": "^2.13.0"
   }
 }
