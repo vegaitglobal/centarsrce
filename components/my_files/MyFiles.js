@@ -6,28 +6,21 @@ import {
   TouchableOpacity,
   View,
   Modal,
-  ImageBackground,
   Dimensions,
-  StatusBar,
-  Platform,
 } from 'react-native';
-import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
+import DocumentPicker from 'react-native-document-picker';
 import Toast from 'react-native-easy-toast';
-import { Header } from 'react-navigation';
 import ArticleTitle from '../article_title/ArticleTitle';
 import Footer from '../footer/Footer';
 import styles from './styles';
-import { read, moveAttachment, dirHome, mkDir, askPermissions } from './LocalStorage';
+import { read, moveAttachment, dirHome, mkDir } from './LocalStorage';
 import FileViewer from 'react-native-file-viewer';
+import BackgroundImageWrapper from './BackgroundImageWrapper';
 
 export default class MyFiles extends React.Component {
-  static navigationOptions = {
-    title: 'Moj spomenar',
-  };
-
-  constructor (props) {
-    super (props);
-    const {width, height} = Dimensions.get ('window');
+  constructor(props) {
+    super(props);
+    const { width, height } = Dimensions.get('window');
     this.state = {
       seeingMore: false,
       files: [],
@@ -39,43 +32,43 @@ export default class MyFiles extends React.Component {
       openFile: '',
       enabledStoragePermission: false,
     };
-    this.toggleSeeingMore = this.toggleSeeingMore.bind (this);
+    this.toggleSeeingMore = this.toggleSeeingMore.bind(this);
   }
 
-  componentDidMount () {
+  componentDidMount() {
     mkDir()
-      .then (() => {
+      .then(() => {
         this.reloadState();
       })
       .catch(() => {
         this.refs.toast.show(
           'Greška prilikom kreiranja direktorijuma spomenara. Proverite da li aplikacija poseduje dozvolu za skladištenje.',
-          3000
+          3000,
         );
       });
   }
 
-  onLayout () {
-    const {width, height} = Dimensions.get ('window');
-    this.setState ({width: width, height: height});
+  onLayout() {
+    const { width, height } = Dimensions.get('window');
+    this.setState({ width: width, height: height });
   }
 
   reloadState = () => {
-    this.setState({files: []});
+    this.setState({ files: [] });
     read(dirHome)
-      .then(files => {
+      .then((files) => {
         this.mapFilesToState(files);
       })
       .catch(() => {
         this.refs.toast.show(
           'Greška prilikom učitavanja spomenara. Proverite da li aplikacija poseduje dozvolu za skladištenje.',
-          3000
+          3000,
         );
       });
   };
 
-  mapFilesToState = files => {
-    files.map(file => {
+  mapFilesToState = (files) => {
+    files.map((file) => {
       if (file.isFile()) {
         const type = this.getType(file.name);
         if (type !== '') {
@@ -86,60 +79,64 @@ export default class MyFiles extends React.Component {
   };
 
   addFileToState = (path, name, type) => {
-    const newVal = [{path: path, name: name, type: type}];
-    this.setState({files: newVal.concat(this.state.files)});
+    const newVal = [{ path: path, name: name, type: type }];
+    this.setState({ files: newVal.concat(this.state.files) });
   };
 
-  getExtension = name => {
-    const splitName = name.split ('.');
+  getExtension = (name) => {
+    const splitName = name.split('.');
     return splitName[splitName.length - 1];
   };
 
-  isImage = ext =>
+  isImage = (ext) =>
     ext === 'jpg' || ext === 'png' || ext === 'gif' || ext === 'jpeg';
-  isPdf = ext => ext === 'pdf';
-  isWord = ext => ext === 'doc' || ext === 'docx';
-  isPowerPoint = ext => ext === 'ppt' || ext === 'pptx';
-  isText = ext => ext === 'txt';
+  isPdf = (ext) => ext === 'pdf';
+  isWord = (ext) => ext === 'doc' || ext === 'docx';
+  isPowerPoint = (ext) => ext === 'ppt' || ext === 'pptx';
+  isText = (ext) => ext === 'txt';
 
   //possible types: image, pdf, doc, ppt, txt or empty string which means it is invalid format
-  getType = fileName => {
+  getType = (fileName) => {
     const ext = this.getExtension(fileName).toLowerCase();
     return this.isImage(ext)
       ? 'image'
       : this.isPdf(ext)
-          ? 'pdf'
-          : this.isWord(ext)
-              ? 'doc'
-              : this.isPowerPoint(ext)
-                  ? 'ppt'
-                  : this.isText(ext) ? 'txt' : '';
+      ? 'pdf'
+      : this.isWord(ext)
+      ? 'doc'
+      : this.isPowerPoint(ext)
+      ? 'ppt'
+      : this.isText(ext)
+      ? 'txt'
+      : '';
   };
 
-  addFile = res => {
+  addFile = (res) => {
     const destinationDir = dirHome; // destination image or document
-    const destinationPath = `${destinationDir}/${res.fileName}`;
-    const type = this.getType(res.fileName);
+    const destinationPath = `${destinationDir}/${res.name}`;
+    const type = this.getType(res.name);
     if (type !== '') {
       moveAttachment(res.uri, destinationPath) // copying attachment
-        .then (res => {
-          this.addFileToState(destinationPath, res.fileName, type);
+        .then((res) => {
+          this.addFileToState(destinationPath, res.name, type);
         })
-        .catch (() =>
+        .catch(() =>
           this.refs.toast.show(
             'Greška prilikom dodavanja u spomenar. Proverite da li aplikacija poseduje dozvolu za skladištenje.',
-            3000
-          )
+            3000,
+          ),
         );
     }
   };
 
-  getImageSource = type =>
+  getImageSource = (type) =>
     type === 'pdf'
       ? styles.pdf
       : type === 'doc'
-          ? styles.word
-          : type === 'ppt' ? styles.ppt : styles.text;
+      ? styles.word
+      : type === 'ppt'
+      ? styles.ppt
+      : styles.text;
 
   onCameraPress = () => {
     this.toggleSeeingMore();
@@ -149,16 +146,16 @@ export default class MyFiles extends React.Component {
   };
 
   toggleSeeingMore() {
-    this.setState({seeingMore: !this.state.seeingMore});
+    this.setState({ seeingMore: !this.state.seeingMore });
   }
 
   setModalVisible(visible, path) {
-    this.setState({modalVisible: visible, modalImagePath: path});
+    this.setState({ modalVisible: visible, modalImagePath: path });
   }
 
-  render () {
+  render() {
     return (
-      <View style={styles.container} onLayout={this.onLayout.bind (this)}>
+      <View style={styles.container} onLayout={this.onLayout.bind(this)}>
         <Toast ref="toast" position="center" style={{ marginHorizontal: 10 }} />
         <ScrollView
           style={styles.scrollView}
@@ -180,42 +177,44 @@ export default class MyFiles extends React.Component {
                   }}
                   onPress={() =>
                     file.type === 'image'
-                      ? this.setModalVisible (true, file.path)
-                      : FileViewer.open(file.path)
-                        .catch(error => {
-                          console.log (error);
-                        })}
+                      ? this.setModalVisible(true, file.path)
+                      : FileViewer.open(file.path).catch((error) => {
+                          console.log(error);
+                        })
+                  }
                 >
-                  {file.type === 'image'
-                    ? <Image
-                        source={{uri: `file://${file.path}`}}
-                        style={[styles.image, { resizeMode: 'contain' }]}
-                      />
-                    : <View style={this.getImageSource(file.type)}>
-                        <Text
-                          style={[
-                            styles.documentTitle,
-                            {color: file.type === 'txt' ? 'black' : 'white'},
-                          ]}
-                        >
-                          {file.type}
-                        </Text>
-                        <Text
-                          numberOfLines={1}
-                          style={[
-                            styles.documentName,
-                            {color: file.type === 'txt' ? 'black' : 'white'},
-                          ]}
-                        >
-                          {file.name}
-                        </Text>
-                      </View>}
+                  {file.type === 'image' ? (
+                    <Image
+                      source={{ uri: `file://${file.path}` }}
+                      style={[styles.image, { resizeMode: 'contain' }]}
+                    />
+                  ) : (
+                    <View style={this.getImageSource(file.type)}>
+                      <Text
+                        style={[
+                          styles.documentTitle,
+                          { color: file.type === 'txt' ? 'black' : 'white' },
+                        ]}
+                      >
+                        {file.type}
+                      </Text>
+                      <Text
+                        numberOfLines={1}
+                        style={[
+                          styles.documentName,
+                          { color: file.type === 'txt' ? 'black' : 'white' },
+                        ]}
+                      >
+                        {file.name}
+                      </Text>
+                    </View>
+                  )}
                 </TouchableOpacity>
               ))
             : null}
         </ScrollView>
         {!this.state.seeingMore && <View />}
-        {this.state.seeingMore &&
+        {this.state.seeingMore && (
           <View>
             <TouchableOpacity
               style={styles.photoImgCon}
@@ -229,17 +228,16 @@ export default class MyFiles extends React.Component {
             <TouchableOpacity
               style={styles.attachImgCon}
               onPress={() => {
-                this.toggleSeeingMore ();
-                DocumentPicker.show (
-                  {
-                    filetype: [DocumentPickerUtil.allFiles ()],
-                  },
-                  (error, res) => {
-                    if (res) {
-                      this.addFile(res);
-                    }
-                  }
-                );
+                this.toggleSeeingMore();
+                DocumentPicker.pick({
+                  type: [
+                    DocumentPicker.types.images,
+                    DocumentPicker.types.doc,
+                    DocumentPicker.types.pdf,
+                    DocumentPicker.types.ppt,
+                    DocumentPicker.types.plainText,
+                  ],
+                }).then((res) => this.addFile(res));
               }}
             >
               <Image
@@ -247,7 +245,8 @@ export default class MyFiles extends React.Component {
                 source={require('../../images/attach-white.png')}
               />
             </TouchableOpacity>
-          </View>}
+          </View>
+        )}
         <TouchableOpacity
           style={styles.plusImgCon}
           onPress={this.toggleSeeingMore}
@@ -265,28 +264,15 @@ export default class MyFiles extends React.Component {
           animationType="slide"
         >
           <TouchableOpacity onPress={() => this.setModalVisible(false, '')}>
-            <ImageBackground
-              style={[
-                styles.backgroundImage,
-                {
-                  height: Platform.OS === 'android' ? this.state.height -
-                    Header.HEIGHT -
-                    56 -
-                    StatusBar.currentHeight 
-                    : this.state.height -
-                    Header.HEIGHT - 56
-                },
-              ]}
-              source={require('../../images/bluredWhite75.png')}
-            >
+            <BackgroundImageWrapper height={this.state.height}>
               <View style={styles.imagePreview}>
                 <Image
-                  style={{flex: 1, height: undefined, width: undefined}}
-                  source={{uri: `file://${this.state.modalImagePath}`}}
+                  style={{ flex: 1, height: undefined, width: undefined }}
+                  source={{ uri: `file://${this.state.modalImagePath}` }}
                   resizeMode="contain"
                 />
               </View>
-            </ImageBackground>
+            </BackgroundImageWrapper>
           </TouchableOpacity>
         </Modal>
         <Footer />
